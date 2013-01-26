@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		184346CF16B3417F007B6799 /* UsingHabitEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 184346CE16B3417F007B6799 /* UsingHabitEntity.m */; };
+		184346E216B4814F007B6799 /* LPHabit.m in Sources */ = {isa = PBXBuildFile; fileRef = 184346E116B4814F007B6799 /* LPHabit.m */; };
+		184346E316B4814F007B6799 /* LPHabit.m in Sources */ = {isa = PBXBuildFile; fileRef = 184346E116B4814F007B6799 /* LPHabit.m */; };
 		18B6ABEE16AD0255008137A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B6ABED16AD0255008137A9 /* UIKit.framework */; };
 		18B6ABF016AD0255008137A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B6ABEF16AD0255008137A9 /* Foundation.framework */; };
 		18B6ABF216AD0255008137A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B6ABF116AD0255008137A9 /* CoreGraphics.framework */; };
@@ -24,7 +26,6 @@
 		18B6AC1316AD0255008137A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B6ABEF16AD0255008137A9 /* Foundation.framework */; };
 		18B6AC1416AD0255008137A9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B6ABF316AD0255008137A9 /* CoreData.framework */; };
 		18B6AC1C16AD0255008137A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18B6AC1A16AD0255008137A9 /* InfoPlist.strings */; };
-		18B6AC1F16AD0255008137A9 /* LifePracticeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B6AC1E16AD0255008137A9 /* LifePracticeTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,10 @@
 /* Begin PBXFileReference section */
 		184346CD16B3417F007B6799 /* UsingHabitEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingHabitEntity.h; sourceTree = "<group>"; };
 		184346CE16B3417F007B6799 /* UsingHabitEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingHabitEntity.m; sourceTree = "<group>"; };
+		184346E016B4814F007B6799 /* LPHabit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPHabit.h; path = LifePracticeCore/Entities/LPHabit.h; sourceTree = "<group>"; };
+		184346E116B4814F007B6799 /* LPHabit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LPHabit.m; path = LifePracticeCore/Entities/LPHabit.m; sourceTree = "<group>"; };
+		184346ED16B4836F007B6799 /* LFDayOfWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFDayOfWeek.h; path = LifePracticeCore/Types/LFDayOfWeek.h; sourceTree = "<group>"; };
+		184346EE16B486AA007B6799 /* LFTimeOfDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFTimeOfDay.h; path = LifePracticeCore/Types/LFTimeOfDay.h; sourceTree = "<group>"; };
 		18B6ABE916AD0255008137A9 /* LifePractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifePractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B6ABED16AD0255008137A9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18B6ABEF16AD0255008137A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -59,8 +64,6 @@
 		18B6AC1016AD0255008137A9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		18B6AC1916AD0255008137A9 /* LifePracticeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LifePracticeTests-Info.plist"; sourceTree = "<group>"; };
 		18B6AC1B16AD0255008137A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		18B6AC1D16AD0255008137A9 /* LifePracticeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LifePracticeTests.h; sourceTree = "<group>"; };
-		18B6AC1E16AD0255008137A9 /* LifePracticeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LifePracticeTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,7 @@
 		184346CA16B3407F007B6799 /* LifePracticeCore */ = {
 			isa = PBXGroup;
 			children = (
+				184346EC16B482F6007B6799 /* Types */,
 				184346CB16B34091007B6799 /* Entities */,
 			);
 			name = LifePracticeCore;
@@ -100,6 +104,8 @@
 		184346CB16B34091007B6799 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				184346E016B4814F007B6799 /* LPHabit.h */,
+				184346E116B4814F007B6799 /* LPHabit.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -111,6 +117,15 @@
 				184346CE16B3417F007B6799 /* UsingHabitEntity.m */,
 			);
 			name = CoreTests;
+			sourceTree = "<group>";
+		};
+		184346EC16B482F6007B6799 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				184346ED16B4836F007B6799 /* LFDayOfWeek.h */,
+				184346EE16B486AA007B6799 /* LFTimeOfDay.h */,
+			);
+			name = Types;
 			sourceTree = "<group>";
 		};
 		18B6ABDE16AD0255008137A9 = {
@@ -174,8 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				184346CC16B34115007B6799 /* CoreTests */,
-				18B6AC1D16AD0255008137A9 /* LifePracticeTests.h */,
-				18B6AC1E16AD0255008137A9 /* LifePracticeTests.m */,
 				18B6AC1816AD0255008137A9 /* Supporting Files */,
 			);
 			path = LifePracticeTests;
@@ -303,6 +316,7 @@
 				18B6ABFC16AD0255008137A9 /* main.m in Sources */,
 				18B6AC0016AD0255008137A9 /* unndunnAppDelegate.m in Sources */,
 				18B6AC0916AD0255008137A9 /* LifePractice.xcdatamodeld in Sources */,
+				184346E216B4814F007B6799 /* LPHabit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,8 +324,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18B6AC1F16AD0255008137A9 /* LifePracticeTests.m in Sources */,
 				184346CF16B3417F007B6799 /* UsingHabitEntity.m in Sources */,
+				184346E316B4814F007B6799 /* LPHabit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
