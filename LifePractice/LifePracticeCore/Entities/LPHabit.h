@@ -7,24 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "../Types/LFDayOfWeek.h"
-#import "../Types/LFTimeOfDay.h"
+#import "LFDayOfWeek.h"
+#import "LFTimeOfDay.h"
 
 @interface LPHabit : NSObject
 {
-    NSString *name, *description;
+    NSString *habitName, *description;
     NSDate *createdDate;
     NSMutableArray *performances;
-    struct LFDayOfWeek *skippedDays;
-    struct LFTimeOfDay *timeOfDay;
+    struct LFDayOfWeek skippedDays;
+    struct LFTimeOfDay timeOfDay;
 }
-@property NSString *name;
-@property NSString *description;
+@property NSString *habitName;
+@property NSString *habitDescription;
 @property NSDate *createdDate;
 @property NSMutableArray *performances;
-@property struct LFDayOfWeek *skippedDays;
-@property struct LFTimeOfDay *timeOfDay;
+@property struct LFDayOfWeek skippedDays;
+@property struct LFTimeOfDay timeOfDay;
 
-
+-init;
 
 @end
