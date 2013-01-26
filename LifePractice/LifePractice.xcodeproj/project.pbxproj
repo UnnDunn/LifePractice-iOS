@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184346CF16B3417F007B6799 /* UsingHabitEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 184346CE16B3417F007B6799 /* UsingHabitEntity.m */; };
 		18B6ABEE16AD0255008137A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B6ABED16AD0255008137A9 /* UIKit.framework */; };
 		18B6ABF016AD0255008137A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B6ABEF16AD0255008137A9 /* Foundation.framework */; };
 		18B6ABF216AD0255008137A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B6ABF116AD0255008137A9 /* CoreGraphics.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		184346CD16B3417F007B6799 /* UsingHabitEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingHabitEntity.h; sourceTree = "<group>"; };
+		184346CE16B3417F007B6799 /* UsingHabitEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingHabitEntity.m; sourceTree = "<group>"; };
 		18B6ABE916AD0255008137A9 /* LifePractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifePractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B6ABED16AD0255008137A9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18B6ABEF16AD0255008137A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -86,9 +89,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		184346CA16B3407F007B6799 /* LifePracticeCore */ = {
+			isa = PBXGroup;
+			children = (
+				184346CB16B34091007B6799 /* Entities */,
+			);
+			name = LifePracticeCore;
+			sourceTree = "<group>";
+		};
+		184346CB16B34091007B6799 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		184346CC16B34115007B6799 /* CoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				184346CD16B3417F007B6799 /* UsingHabitEntity.h */,
+				184346CE16B3417F007B6799 /* UsingHabitEntity.m */,
+			);
+			name = CoreTests;
+			sourceTree = "<group>";
+		};
 		18B6ABDE16AD0255008137A9 = {
 			isa = PBXGroup;
 			children = (
+				184346CA16B3407F007B6799 /* LifePracticeCore */,
 				18B6ABF516AD0255008137A9 /* LifePractice */,
 				18B6AC1716AD0255008137A9 /* LifePracticeTests */,
 				18B6ABEC16AD0255008137A9 /* Frameworks */,
@@ -145,6 +173,7 @@
 		18B6AC1716AD0255008137A9 /* LifePracticeTests */ = {
 			isa = PBXGroup;
 			children = (
+				184346CC16B34115007B6799 /* CoreTests */,
 				18B6AC1D16AD0255008137A9 /* LifePracticeTests.h */,
 				18B6AC1E16AD0255008137A9 /* LifePracticeTests.m */,
 				18B6AC1816AD0255008137A9 /* Supporting Files */,
@@ -282,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18B6AC1F16AD0255008137A9 /* LifePracticeTests.m in Sources */,
+				184346CF16B3417F007B6799 /* UsingHabitEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +420,6 @@
 		18B6AC2616AD0255008137A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LifePractice.app/LifePractice";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -407,7 +436,6 @@
 		18B6AC2716AD0255008137A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LifePractice.app/LifePractice";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -440,6 +468,7 @@
 				18B6AC2416AD0255008137A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18B6AC2516AD0255008137A9 /* Build configuration list for PBXNativeTarget "LifePracticeTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +477,7 @@
 				18B6AC2716AD0255008137A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
