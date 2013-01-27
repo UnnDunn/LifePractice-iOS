@@ -16,12 +16,7 @@
     if(self = [super init])
     {
         habitName = [[NSString alloc] initWithString:NSLocalizedString(@"Habit_Name_Default", @"Default name for 'Habit' entity")];
-        habitDescription = [[NSString alloc] init];
-        createdDate = [NSDate date];
-        skippedDays.None = 1;
-        performances = [[NSMutableArray alloc] init];
-        timeOfDay.startHour = 0;
-        timeOfDay.endHour = 24;
+        [self initializeProperties];
     }
     
     return self;
@@ -32,16 +27,20 @@
     if(self = [super init])
     {
         habitName = [[NSString alloc] initWithString:initName];
-        habitDescription = [[NSString alloc] init];
-        createdDate = [NSDate date];
-        skippedDays.None = 1;
-        performances = [[NSMutableArray alloc] init];
-        timeOfDay.startHour = 0;
-        timeOfDay.endHour = 24;
+        [self initializeProperties];
     }
     
     return self;
 }
 
+-(void)initializeProperties
+{
+    habitDescription = [[NSString alloc] init];
+    createdDate = [NSDate date];
+    skippedDays.None = 1;
+    performances = [[NSMutableArray alloc] init];
+    timeOfDay.startHour = 0;
+    timeOfDay.endHour = 24;    
+}
 @end
 
