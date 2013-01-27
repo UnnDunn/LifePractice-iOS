@@ -27,5 +27,21 @@
     return self;
 }
 
+- (id)initWithName:(NSString *)initName
+{
+    if(self = [super init])
+    {
+        habitName = [[NSString alloc] initWithString:initName];
+        habitDescription = [[NSString alloc] init];
+        createdDate = [NSDate date];
+        skippedDays.None = 1;
+        performances = [[NSMutableArray alloc] init];
+        timeOfDay.startHour = 0;
+        timeOfDay.endHour = 24;
+    }
+    
+    return self;
+}
+
 @end
 

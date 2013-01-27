@@ -26,5 +26,5 @@
 @property struct LFTimeOfDay timeOfDay;
 
 -init;
-
+-initWithName:(NSString *) initName;
 @end
