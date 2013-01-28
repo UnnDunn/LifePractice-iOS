@@ -14,17 +14,16 @@
 {
     NSString *habitName, *description;
     NSDate *createdDate;
-    NSMutableArray *performances;
     struct LFDayOfWeek skippedDays;
     struct LFTimeOfDay timeOfDay;
 }
 @property NSString *habitName;
 @property NSString *habitDescription;
 @property NSDate *createdDate;
-@property NSMutableArray *performances;
 @property struct LFDayOfWeek skippedDays;
 @property struct LFTimeOfDay timeOfDay;
 
 -init;
 -initWithName:(NSString *) initName;
+-(NSArray *)getAllPerformances;
 @end

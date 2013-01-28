@@ -11,6 +11,7 @@
 @implementation LPHabit
 @synthesize habitName, habitDescription, createdDate, skippedDays, performances, timeOfDay;
 
+
 - init
 {
     if(self = [super init])
