@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Uchendu Nwachuku. All rights reserved.
 //
 
-#ifndef LifePractice_Header_h
-#define LifePractice_Header_h
+#ifndef LifePractice_LPDayOfWeek_h
+#define LifePractice_LPDayOfWeek_h
 
-struct LFDayOfWeek {
+struct LPDayOfWeek {
     unsigned int None :1;
     unsigned int Monday :1;
     unsigned int Tuesday :1;
