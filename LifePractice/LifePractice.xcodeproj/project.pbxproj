@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181DE5CB16B760A1002227C0 /* LPPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5CA16B760A1002227C0 /* LPPerformance.m */; };
+		181DE5CC16B760A1002227C0 /* LPPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5CA16B760A1002227C0 /* LPPerformance.m */; };
 		184346CF16B3417F007B6799 /* UsingHabitEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 184346CE16B3417F007B6799 /* UsingHabitEntity.m */; };
 		184346E216B4814F007B6799 /* LPHabit.m in Sources */ = {isa = PBXBuildFile; fileRef = 184346E116B4814F007B6799 /* LPHabit.m */; };
 		184346E316B4814F007B6799 /* LPHabit.m in Sources */ = {isa = PBXBuildFile; fileRef = 184346E116B4814F007B6799 /* LPHabit.m */; };
@@ -39,12 +41,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181DE5C916B760A1002227C0 /* LPPerformance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPPerformance.h; path = LifePracticeCore/Types/LPPerformance.h; sourceTree = "<group>"; };
+		181DE5CA16B760A1002227C0 /* LPPerformance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LPPerformance.m; path = LifePracticeCore/Types/LPPerformance.m; sourceTree = "<group>"; };
 		184346CD16B3417F007B6799 /* UsingHabitEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingHabitEntity.h; sourceTree = "<group>"; };
 		184346CE16B3417F007B6799 /* UsingHabitEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingHabitEntity.m; sourceTree = "<group>"; };
 		184346E016B4814F007B6799 /* LPHabit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPHabit.h; path = LifePracticeCore/Entities/LPHabit.h; sourceTree = "<group>"; };
 		184346E116B4814F007B6799 /* LPHabit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LPHabit.m; path = LifePracticeCore/Entities/LPHabit.m; sourceTree = "<group>"; };
-		184346ED16B4836F007B6799 /* LFDayOfWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFDayOfWeek.h; path = LifePracticeCore/Types/LFDayOfWeek.h; sourceTree = "<group>"; };
-		184346EE16B486AA007B6799 /* LFTimeOfDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFTimeOfDay.h; path = LifePracticeCore/Types/LFTimeOfDay.h; sourceTree = "<group>"; };
+		184346ED16B4836F007B6799 /* LPDayOfWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPDayOfWeek.h; path = LifePracticeCore/Types/LPDayOfWeek.h; sourceTree = "<group>"; };
+		184346EE16B486AA007B6799 /* LPTimeOfDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPTimeOfDay.h; path = LifePracticeCore/Types/LPTimeOfDay.h; sourceTree = "<group>"; };
 		18B6ABE916AD0255008137A9 /* LifePractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifePractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B6ABED16AD0255008137A9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18B6ABEF16AD0255008137A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -122,8 +126,10 @@
 		184346EC16B482F6007B6799 /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				184346ED16B4836F007B6799 /* LFDayOfWeek.h */,
-				184346EE16B486AA007B6799 /* LFTimeOfDay.h */,
+				184346ED16B4836F007B6799 /* LPDayOfWeek.h */,
+				184346EE16B486AA007B6799 /* LPTimeOfDay.h */,
+				181DE5C916B760A1002227C0 /* LPPerformance.h */,
+				181DE5CA16B760A1002227C0 /* LPPerformance.m */,
 			);
 			name = Types;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 				18B6AC0016AD0255008137A9 /* unndunnAppDelegate.m in Sources */,
 				18B6AC0916AD0255008137A9 /* LifePractice.xcdatamodeld in Sources */,
 				184346E216B4814F007B6799 /* LPHabit.m in Sources */,
+				181DE5CB16B760A1002227C0 /* LPPerformance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +333,7 @@
 			files = (
 				184346CF16B3417F007B6799 /* UsingHabitEntity.m in Sources */,
 				184346E316B4814F007B6799 /* LPHabit.m in Sources */,
+				181DE5CC16B760A1002227C0 /* LPPerformance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

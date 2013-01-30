@@ -57,7 +57,7 @@
     NSDate *tomorrow = [[NSDate alloc] initWithTimeIntervalSinceNow:60 * 60 * 24];
     
     NSDateComponents *todayMidnight = [gregorian components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:today];
-    NSDateComponents *yesterdayMidnight = [gregorian components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit)];
+    NSDateComponents *yesterdayMidnight = [gregorian components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:yesterday];
 
     [habit addPerformance]; // should succeed with performance date added now and reference date today
     [habit addPerformance]; // should fail because you can't have two performances on the same date
@@ -71,16 +71,16 @@
     STAssertTrue([performances count] == 2, @"Performances array should have 2 entries.");
     
     // test first performance
-    LPPerformance performance1 = [performances objectAtIndex:0];
-    NSTimeInterval performance1CreatedInterval = [(performance1.CreatedDate) timeIntervalSinceNow];
+    LPPerformance *performance1 = [performances objectAtIndex:0];
+    NSTimeInterval performance1CreatedInterval = [[performance1 createdDate] timeIntervalSinceNow];
     STAssertTrue(abs((int)performance1CreatedInterval) < 1, @"Performance1 created date should be within 1 second of current time.");
-    STAssertEquals(performance1.ReferenceDate, [todayMidnight date], @"Performance1 reference date should be midnight of today");
+    STAssertEquals([performance1 referenceDate], [todayMidnight date], @"Performance1 reference date should be midnight of today");
     
     // test second performance
-    LPPerformance performance2 = [performances objectAtIndex:1];
-    NSTimeInterval *performance2CreatedInterval = [(performance2.CreatedDate) timeIntervalSinceNow];
-    STassertTrue(abs((int)performance2CreatedInterval) < 1, @"Performance2 created date must be within 1 second of current date.");
-    STAssertEquals(performance2.ReferenceDate, [yesterdayMidnight date], @"Performance2 created date should be midnight yesterday");
+    LPPerformance *performance2 = [performances objectAtIndex:1];
+    NSTimeInterval performance2CreatedInterval = [[performance2 createdDate] timeIntervalSinceNow];
+    STAssertTrue(abs((int)performance2CreatedInterval) < 1, @"Performance2 created date must be within 1 second of current date.");
+    STAssertEquals([performance2 referenceDate], [yesterdayMidnight date], @"Performance2 created date should be midnight yesterday");
     
     
 }

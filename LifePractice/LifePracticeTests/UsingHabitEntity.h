@@ -8,6 +8,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "LPHabit.h"
+#import "LPPerformance.h"
 
 @interface UsingHabitEntity : SenTestCase
 

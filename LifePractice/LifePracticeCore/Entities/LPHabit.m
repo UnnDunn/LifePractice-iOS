@@ -9,8 +9,9 @@
 #import "LPHabit.h"
 
 @implementation LPHabit
-@synthesize habitName, habitDescription, createdDate, skippedDays, performances, timeOfDay;
+@synthesize habitName, habitDescription, createdDate, skippedDays, timeOfDay;
 
+NSMutableArray *performances;
 
 - init
 {
