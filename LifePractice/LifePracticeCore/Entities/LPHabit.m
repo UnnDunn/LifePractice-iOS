@@ -11,7 +11,7 @@
 @implementation LPHabit
 @synthesize habitName, habitDescription, createdDate, skippedDays, timeOfDay;
 
-NSMutableArray *performances;
+NSMutableDictionary *performances;
 
 - init
 {
@@ -40,7 +40,7 @@ NSMutableArray *performances;
     habitDescription = [[NSString alloc] init];
     createdDate = [NSDate date];
     skippedDays.None = 1;
-    performances = [[NSMutableArray alloc] init];
+    performances = [[NSMutableDictionary alloc] init];
     timeOfDay.startHour = 0;
     timeOfDay.endHour = 24;    
 }
@@ -50,37 +50,34 @@ NSMutableArray *performances;
     return [self addPerformance:[NSDate date]];
 }
 
--(BOOL)addPerformance:(NSDate *)referenceDate
+-(BOOL)addPerformance:(NSDate *)forDate
 {
     NSCalendar *gregorian = [NSCalendar currentCalendar];
-    NSDateComponents *dateDifference = [gregorian components:(NSDayCalendarUnit) fromDate:referenceDate toDate:[NSDate date] options:0];
-    NSComparisonResult comparisonResult = [[NSDate date] compare:referenceDate];
+    NSDate *now = [NSDate date];
+    NSDateComponents *dateDifference = [gregorian components:(NSDayCalendarUnit) fromDate:forDate toDate:[NSDate date] options:0];
+    NSComparisonResult comparisonResult = [now compare:forDate];
     if (comparisonResult == NSOrderedAscending || [dateDifference day] >= 2) {
         return false;
     }
-    LPPerformance *currentPerformance = [self getPerformanceOnDate:[DateUtilities getMidnightOfDate:referenceDate]];
+    LPPerformance *currentPerformance = [self getPerformance:[DateUtilities getMidnightOfDate:forDate]];
     if (currentPerformance != Nil) {
         return false;
     }
     
-    currentPerformance = [[LPPerformance alloc] initWithReferenceDate:referenceDate];
-    [performances addObject:currentPerformance];
+    currentPerformance = [[LPPerformance alloc] initWithReferenceDate:forDate];
+    [performances setObject:currentPerformance forKey:[currentPerformance referenceDate]];
     return true;
 }
 
 -(NSArray *)listPerformances
 {
-    return [performances sortedArrayUsingSelector:@selector(referenceDateCompare:)];
+    return [[performances allValues] sortedArrayUsingSelector:@selector(referenceDateCompare:)];
 }
 
--(LPPerformance *)getPerformanceOnDate:(NSDate *)date
-{
-    for (LPPerformance *performance in performances) {
-        if ([[performance referenceDate] isEqualToDate:date]) {
-            return performance;
-        }
-    }
-    return Nil;
+-(LPPerformance *)getPerformance:(NSDate *)forDate
+{    
+    NSDate *referenceDate = [DateUtilities getMidnightOfDate:forDate];
+    return [performances objectForKey:referenceDate];
 }
 @end
 

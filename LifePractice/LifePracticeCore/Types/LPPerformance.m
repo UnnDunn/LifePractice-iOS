@@ -27,6 +27,11 @@
     return self;
 }
 
+-(BOOL)isEqual:(LPPerformance *)object
+{
+    return [[self referenceDate] isEqualToDate:[object referenceDate]];
+}
+
 -(NSComparisonResult)referenceDateCompare:(LPPerformance *)comparisonPerformance
 {
     NSDate *comparisonReferenceDate = [comparisonPerformance referenceDate];
