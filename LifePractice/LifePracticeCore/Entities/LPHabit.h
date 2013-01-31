@@ -30,6 +30,6 @@
 -(NSArray *)listPerformances;
 -(BOOL)addPerformance;
 -(BOOL)addPerformance:(NSDate *) forDate;
--(BOOL)deletePerformance:(NSDate *) forDate;
+-(BOOL)removePerformance:(NSDate *) forDate;
 -(LPPerformance *)getPerformance:(NSDate *)forDate;
 @end

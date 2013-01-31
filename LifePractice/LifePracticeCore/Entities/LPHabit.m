@@ -68,7 +68,7 @@ NSMutableDictionary *performances;
     return true;
 }
 
--(BOOL)deletePerformance:(NSDate *)forDate
+-(BOOL)removePerformance:(NSDate *)forDate
 {
     NSCalendar *gregorian = [NSCalendar currentCalendar];
     NSDateComponents *dateDifference = [gregorian components:(NSDayCalendarUnit) fromDate:forDate toDate:[NSDate date] options:0];

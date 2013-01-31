@@ -87,7 +87,7 @@
     
 }
 
--(void)testDeletePerformanceMethodHandlesDatesCorrectly
+-(void)testRemovePerformanceMethodHandlesDatesCorrectly
 {    
     LPHabit *habit = [[LPHabit alloc] initWithName:@"Test Habit"];
     
@@ -101,7 +101,7 @@
     
     STAssertTrue([[habit listPerformances] count] == 2, @"Number of performances should be 2");
     
-    STAssertTrue([habit deletePerformance:today], @"Deleting performance for today should succeed.");
+    STAssertTrue([habit removePerformance:today], @"Deleting performance for today should succeed.");
     
     NSArray *performances = [habit listPerformances];
     STAssertTrue([performances count] == 1, @"Number of performances should be 1.");
@@ -110,10 +110,10 @@
     [habit addPerformance];
     STAssertTrue([[habit listPerformances] count] == 2, @"Number of performances should be 2");
     
-    STAssertFalseNoThrow([habit deletePerformance:tomorrow], @"Deleting performance for tomorrow should fail, for obvious reasons");
-    STAssertFalseNoThrow([habit deletePerformance:twoDaysAgo], @"Deleting performance for two days ago should fail");
+    STAssertFalseNoThrow([habit removePerformance:tomorrow], @"Deleting performance for tomorrow should fail, for obvious reasons");
+    STAssertFalseNoThrow([habit removePerformance:twoDaysAgo], @"Deleting performance for two days ago should fail");
     
-    [habit deletePerformance:yesterday];
+    [habit removePerformance:yesterday];
     performances = [habit listPerformances];
     STAssertTrue([performances count] == 1, @"Number of performances should be 1.");
     STAssertTrue([[[performances objectAtIndex:0] referenceDate] isEqualToDate:[DateUtilities getMidnightOfDate:today]], @"Reference date for performance 0 should be midnight today.");
