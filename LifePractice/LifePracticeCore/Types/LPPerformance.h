@@ -19,6 +19,10 @@
 
 -(LPPerformance *)init;
 -(LPPerformance *)initWithReferenceDate:(NSDate *)referenceDate;
++(LPPerformance *)performance;
++(LPPerformance *)performanceForDate:(NSDate *)referenceDate;
+
+
 -(BOOL)isEqual:(LPPerformance *)object;
 -(NSComparisonResult)referenceDateCompare:(LPPerformance *)comparisonPerformance;
 -(NSComparisonResult)createDateCompare:(LPPerformance *)comparisonPerformance;

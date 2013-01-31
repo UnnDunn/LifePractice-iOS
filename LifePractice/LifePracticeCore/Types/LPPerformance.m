@@ -27,6 +27,16 @@
     return self;
 }
 
++(LPPerformance *)performance
+{
+    return [[LPPerformance alloc] init];
+}
+
++(LPPerformance *)performanceForDate:(NSDate *)referenceDate
+{
+    return [[LPPerformance alloc] initWithReferenceDate:referenceDate];
+}
+
 -(BOOL)isEqual:(LPPerformance *)object
 {
     return [[self referenceDate] isEqualToDate:[object referenceDate]];

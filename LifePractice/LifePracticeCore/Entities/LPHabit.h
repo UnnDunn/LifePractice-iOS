@@ -29,5 +29,7 @@
 -initWithName:(NSString *) initName;
 -(NSArray *)listPerformances;
 -(BOOL)addPerformance;
--(BOOL)addPerformance:(NSDate *) referenceDate;
+-(BOOL)addPerformance:(NSDate *) forDate;
+-(BOOL)deletePerformance:(NSDate *) forDate;
+-(LPPerformance *)getPerformance:(NSDate *)forDate;
 @end

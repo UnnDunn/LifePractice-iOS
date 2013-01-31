@@ -87,4 +87,36 @@
     
 }
 
+-(void)testDeletePerformanceMethodHandlesDatesCorrectly
+{    
+    LPHabit *habit = [[LPHabit alloc] initWithName:@"Test Habit"];
+    
+    NSDate *yesterday = [[NSDate alloc] initWithTimeIntervalSinceNow:60 * 60 * 24 * -1];
+    NSDate *today = [NSDate date];
+    NSDate *twoDaysAgo = [[NSDate alloc] initWithTimeIntervalSinceNow:60 * 60 * 48 * -1];
+    NSDate *tomorrow = [[NSDate alloc] initWithTimeIntervalSinceNow:60 * 60 * 24];
+        
+    [habit addPerformance:today];
+    [habit addPerformance:yesterday];
+    
+    STAssertTrue([[habit listPerformances] count] == 2, @"Number of performances should be 2");
+    
+    STAssertTrue([habit deletePerformance:today], @"Deleting performance for today should succeed.");
+    
+    NSArray *performances = [habit listPerformances];
+    STAssertTrue([performances count] == 1, @"Number of performances should be 1.");
+    STAssertTrue([[[performances objectAtIndex:0] referenceDate] isEqualToDate:[DateUtilities getMidnightOfDate:yesterday]], @"Reference date for performance 0 should be midnight yesterday.");
+    
+    [habit addPerformance];
+    STAssertTrue([[habit listPerformances] count] == 2, @"Number of performances should be 2");
+    
+    STAssertFalseNoThrow([habit deletePerformance:tomorrow], @"Deleting performance for tomorrow should fail, for obvious reasons");
+    STAssertFalseNoThrow([habit deletePerformance:twoDaysAgo], @"Deleting performance for two days ago should fail");
+    
+    [habit deletePerformance:yesterday];
+    performances = [habit listPerformances];
+    STAssertTrue([performances count] == 1, @"Number of performances should be 1.");
+    STAssertTrue([[[performances objectAtIndex:0] referenceDate] isEqualToDate:[DateUtilities getMidnightOfDate:today]], @"Reference date for performance 0 should be midnight today.");
+}
+
 @end

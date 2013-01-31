@@ -55,18 +55,34 @@ NSMutableDictionary *performances;
     NSCalendar *gregorian = [NSCalendar currentCalendar];
     NSDate *now = [NSDate date];
     NSDateComponents *dateDifference = [gregorian components:(NSDayCalendarUnit) fromDate:forDate toDate:[NSDate date] options:0];
-    NSComparisonResult comparisonResult = [now compare:forDate];
-    if (comparisonResult == NSOrderedAscending || [dateDifference day] >= 2) {
+    if ([now compare:forDate] == NSOrderedAscending || [dateDifference day] >= 2) {
         return false;
     }
-    LPPerformance *currentPerformance = [self getPerformance:[DateUtilities getMidnightOfDate:forDate]];
+    LPPerformance *currentPerformance = [self getPerformance:forDate];
     if (currentPerformance != Nil) {
         return false;
     }
     
-    currentPerformance = [[LPPerformance alloc] initWithReferenceDate:forDate];
+    currentPerformance = [LPPerformance performanceForDate:forDate];
     [performances setObject:currentPerformance forKey:[currentPerformance referenceDate]];
     return true;
+}
+
+-(BOOL)deletePerformance:(NSDate *)forDate
+{
+    NSCalendar *gregorian = [NSCalendar currentCalendar];
+    NSDateComponents *dateDifference = [gregorian components:(NSDayCalendarUnit) fromDate:forDate toDate:[NSDate date] options:0];
+    if ([dateDifference day] >= 2) {
+        return false;
+    }
+    LPPerformance *currentPerformance = [self getPerformance:forDate];
+    if (currentPerformance == Nil) {
+        return false;
+    }
+    
+    [performances removeObjectForKey:[currentPerformance referenceDate]];
+    return true;
+    
 }
 
 -(NSArray *)listPerformances
