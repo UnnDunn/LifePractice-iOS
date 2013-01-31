@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "LPDayOfWeek.h"
 #import "LPTimeOfDay.h"
+#import "LPPerformance.h"
+#import "DateUtilities.h"
 
 @interface LPHabit : NSObject
 {
@@ -27,5 +29,5 @@
 -initWithName:(NSString *) initName;
 -(NSArray *)listPerformances;
 -(BOOL)addPerformance;
--(BOOL)addPerformance:(NSDate *) regDate;
+-(BOOL)addPerformance:(NSDate *) referenceDate;
 @end

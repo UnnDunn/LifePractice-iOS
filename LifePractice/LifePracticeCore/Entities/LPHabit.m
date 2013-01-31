@@ -44,5 +44,43 @@ NSMutableArray *performances;
     timeOfDay.startHour = 0;
     timeOfDay.endHour = 24;    
 }
+
+-(BOOL)addPerformance
+{
+    return [self addPerformance:[NSDate date]];
+}
+
+-(BOOL)addPerformance:(NSDate *)referenceDate
+{
+    NSCalendar *gregorian = [NSCalendar currentCalendar];
+    NSDateComponents *dateDifference = [gregorian components:(NSDayCalendarUnit) fromDate:referenceDate toDate:[NSDate date] options:0];
+    NSComparisonResult comparisonResult = [[NSDate date] compare:referenceDate];
+    if (comparisonResult == NSOrderedAscending || [dateDifference day] >= 2) {
+        return false;
+    }
+    LPPerformance *currentPerformance = [self getPerformanceOnDate:[DateUtilities getMidnightOfDate:referenceDate]];
+    if (currentPerformance != Nil) {
+        return false;
+    }
+    
+    currentPerformance = [[LPPerformance alloc] initWithReferenceDate:referenceDate];
+    [performances addObject:currentPerformance];
+    return true;
+}
+
+-(NSArray *)listPerformances
+{
+    return [performances sortedArrayUsingSelector:@selector(referenceDateCompare:)];
+}
+
+-(LPPerformance *)getPerformanceOnDate:(NSDate *)date
+{
+    for (LPPerformance *performance in performances) {
+        if ([[performance referenceDate] isEqualToDate:date]) {
+            return performance;
+        }
+    }
+    return Nil;
+}
 @end
 

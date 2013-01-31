@@ -10,4 +10,33 @@
 
 @implementation LPPerformance
 @synthesize referenceDate, createdDate;
+
+-(LPPerformance *)init
+{
+    return [self initWithReferenceDate:[NSDate date]];
+}
+
+-(LPPerformance *)initWithReferenceDate:(NSDate *)date
+{
+    if(self = [super init])
+    {
+        [self setCreatedDate:[NSDate date]];
+        [self setReferenceDate:[DateUtilities getMidnightOfDate:date]];
+    }
+    
+    return self;
+}
+
+-(NSComparisonResult)referenceDateCompare:(LPPerformance *)comparisonPerformance
+{
+    NSDate *comparisonReferenceDate = [comparisonPerformance referenceDate];
+    return [[self referenceDate] compare:comparisonReferenceDate];
+}
+
+-(NSComparisonResult)createDateCompare:(LPPerformance *)comparisonPerformance
+{
+    NSDate *comparisonReferenceDate = [comparisonPerformance referenceDate];
+    return [[self referenceDate] compare:comparisonReferenceDate];
+}
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DateUtilities.h"
 
 @interface LPPerformance : NSObject
 {
@@ -15,4 +16,9 @@
 }
 @property NSDate *referenceDate;
 @property NSDate *createdDate;
+
+-(LPPerformance *)init;
+-(LPPerformance *)initWithReferenceDate:(NSDate *)referenceDate;
+-(NSComparisonResult)referenceDateCompare:(LPPerformance *)comparisonPerformance;
+-(NSComparisonResult)createDateCompare:(LPPerformance *)comparisonPerformance;
 @end

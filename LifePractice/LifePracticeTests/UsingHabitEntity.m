@@ -56,14 +56,16 @@
     NSDate *twoDaysAgo = [[NSDate alloc] initWithTimeIntervalSinceNow:60 * 60 * 48 * -1];
     NSDate *tomorrow = [[NSDate alloc] initWithTimeIntervalSinceNow:60 * 60 * 24];
     
-    NSDateComponents *todayMidnight = [gregorian components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:today];
-    NSDateComponents *yesterdayMidnight = [gregorian components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:yesterday];
+    NSDateComponents *todayComponents = [gregorian components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:today];
+    NSDate *todayMidnight = [gregorian dateFromComponents:todayComponents];
+    NSDateComponents *yesterdayComponents = [gregorian components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:yesterday];
+    NSDate *yesterdayMidnight = [gregorian dateFromComponents:yesterdayComponents];
 
-    [habit addPerformance]; // should succeed with performance date added now and reference date today
-    [habit addPerformance]; // should fail because you can't have two performances on the same date
-    [habit addPerformance:yesterday]; // should succeed with reference date yesterday and created date today
-    [habit addPerformance:twoDaysAgo]; // should fail, you can't add a performance for more than 1 day ago
-    [habit addPerformance:tomorrow]; // should fail, you can't add a performance for a date in the future
+    STAssertTrue([habit addPerformance], @"Adding first performance for today should succeed"); // should succeed with performance date added now and reference date today
+    STAssertFalseNoThrow([habit addPerformance:today], @"Adding second performance for today should fail"); // should fail because you can't have two performances on the same date
+    STAssertTrue([habit addPerformance:yesterday], @"Adding performance for yesterday should succeed"); // should succeed with reference date yesterday and created date today
+    STAssertFalseNoThrow([habit addPerformance:twoDaysAgo], @"Adding performance for two days ago should fail"); // should fail, you can't add a performance for more than 1 day ago
+    STAssertFalseNoThrow([habit addPerformance:tomorrow], @"Adding performance for future date should fail"); // should fail, you can't add a performance for a date in the future
     
     NSArray *performances = [habit listPerformances];
     
@@ -72,15 +74,15 @@
     
     // test first performance
     LPPerformance *performance1 = [performances objectAtIndex:0];
-    NSTimeInterval performance1CreatedInterval = [[performance1 createdDate] timeIntervalSinceNow];
+    NSTimeInterval performance1CreatedInterval = [[performance1 createdDate] timeIntervalSinceDate:today];
     STAssertTrue(abs((int)performance1CreatedInterval) < 1, @"Performance1 created date should be within 1 second of current time.");
-    STAssertEquals([performance1 referenceDate], [todayMidnight date], @"Performance1 reference date should be midnight of today");
+    STAssertTrue([[performance1 referenceDate] isEqualToDate:yesterdayMidnight], @"Performance1 reference date should be midnight of today");
     
     // test second performance
     LPPerformance *performance2 = [performances objectAtIndex:1];
-    NSTimeInterval performance2CreatedInterval = [[performance2 createdDate] timeIntervalSinceNow];
+    NSTimeInterval performance2CreatedInterval = [[performance2 createdDate] timeIntervalSinceDate:today];
     STAssertTrue(abs((int)performance2CreatedInterval) < 1, @"Performance2 created date must be within 1 second of current date.");
-    STAssertEquals([performance2 referenceDate], [yesterdayMidnight date], @"Performance2 created date should be midnight yesterday");
+    STAssertTrue([[performance2 referenceDate] isEqualToDate:todayMidnight], @"Performance2 created date should be midnight yesterday");
     
     
 }

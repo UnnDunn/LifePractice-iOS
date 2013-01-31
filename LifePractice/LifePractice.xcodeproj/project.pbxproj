@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		181DE5CB16B760A1002227C0 /* LPPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5CA16B760A1002227C0 /* LPPerformance.m */; };
 		181DE5CC16B760A1002227C0 /* LPPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5CA16B760A1002227C0 /* LPPerformance.m */; };
+		181DE5D916B99D5F002227C0 /* DateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5D816B99D5F002227C0 /* DateUtilities.m */; };
+		181DE5DA16B9EAB6002227C0 /* DateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5D816B99D5F002227C0 /* DateUtilities.m */; };
 		184346CF16B3417F007B6799 /* UsingHabitEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 184346CE16B3417F007B6799 /* UsingHabitEntity.m */; };
 		184346E216B4814F007B6799 /* LPHabit.m in Sources */ = {isa = PBXBuildFile; fileRef = 184346E116B4814F007B6799 /* LPHabit.m */; };
 		184346E316B4814F007B6799 /* LPHabit.m in Sources */ = {isa = PBXBuildFile; fileRef = 184346E116B4814F007B6799 /* LPHabit.m */; };
@@ -43,6 +45,8 @@
 /* Begin PBXFileReference section */
 		181DE5C916B760A1002227C0 /* LPPerformance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPPerformance.h; path = LifePracticeCore/Types/LPPerformance.h; sourceTree = "<group>"; };
 		181DE5CA16B760A1002227C0 /* LPPerformance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LPPerformance.m; path = LifePracticeCore/Types/LPPerformance.m; sourceTree = "<group>"; };
+		181DE5D716B99D5F002227C0 /* DateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateUtilities.h; path = Utilities/DateUtilities.h; sourceTree = "<group>"; };
+		181DE5D816B99D5F002227C0 /* DateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateUtilities.m; path = Utilities/DateUtilities.m; sourceTree = "<group>"; };
 		184346CD16B3417F007B6799 /* UsingHabitEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingHabitEntity.h; sourceTree = "<group>"; };
 		184346CE16B3417F007B6799 /* UsingHabitEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingHabitEntity.m; sourceTree = "<group>"; };
 		184346E016B4814F007B6799 /* LPHabit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPHabit.h; path = LifePracticeCore/Entities/LPHabit.h; sourceTree = "<group>"; };
@@ -96,9 +100,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181DE5D516B99CF2002227C0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				181DE5D716B99D5F002227C0 /* DateUtilities.h */,
+				181DE5D816B99D5F002227C0 /* DateUtilities.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		184346CA16B3407F007B6799 /* LifePracticeCore */ = {
 			isa = PBXGroup;
 			children = (
+				181DE5D516B99CF2002227C0 /* Utilities */,
 				184346EC16B482F6007B6799 /* Types */,
 				184346CB16B34091007B6799 /* Entities */,
 			);
@@ -324,6 +338,7 @@
 				18B6AC0916AD0255008137A9 /* LifePractice.xcdatamodeld in Sources */,
 				184346E216B4814F007B6799 /* LPHabit.m in Sources */,
 				181DE5CB16B760A1002227C0 /* LPPerformance.m in Sources */,
+				181DE5D916B99D5F002227C0 /* DateUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +349,7 @@
 				184346CF16B3417F007B6799 /* UsingHabitEntity.m in Sources */,
 				184346E316B4814F007B6799 /* LPHabit.m in Sources */,
 				181DE5CC16B760A1002227C0 /* LPPerformance.m in Sources */,
+				181DE5DA16B9EAB6002227C0 /* DateUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
