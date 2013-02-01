@@ -1,5 +1,5 @@
 //
-//  DateUtilities.h
+//  UsingDateUtilities.h
 //  LifePractice
 //
 //  Created by Uchendu Nwachuku on 1/31/13.
@@ -7,7 +7,8 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "DateUtilities.h"
 
-@interface DateUtilities : SenTestCase
+@interface UsingDateUtilities : SenTestCase
 
 @end
