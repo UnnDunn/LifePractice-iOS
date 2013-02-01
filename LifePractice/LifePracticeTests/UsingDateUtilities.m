@@ -23,5 +23,8 @@
     STAssertTrue([inputComponents year] == [resultComponents year], @"Year component of input and result should be equal");
     STAssertTrue([inputComponents month] == [resultComponents month], @"Month component of input and result should be equal");
     STAssertTrue([inputComponents day] == [resultComponents day], @"Day component of input and result should be equal");
+    STAssertTrue([resultComponents hour] == 0, @"Hour component of result should be 0");
+    STAssertTrue([resultComponents minute] == 0, @"Minute component of result should be 0");
+    STAssertTrue([resultComponents second] == 0, @"Second component of result should be 0");
 }
 @end
