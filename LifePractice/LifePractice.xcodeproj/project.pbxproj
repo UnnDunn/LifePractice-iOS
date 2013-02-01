@@ -30,6 +30,7 @@
 		18B6AC1316AD0255008137A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B6ABEF16AD0255008137A9 /* Foundation.framework */; };
 		18B6AC1416AD0255008137A9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B6ABF316AD0255008137A9 /* CoreData.framework */; };
 		18B6AC1C16AD0255008137A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18B6AC1A16AD0255008137A9 /* InfoPlist.strings */; };
+		18D33F3F16BB50D3005EFD9B /* DateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D33F3E16BB50D3005EFD9B /* DateUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		18B6AC1016AD0255008137A9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		18B6AC1916AD0255008137A9 /* LifePracticeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LifePracticeTests-Info.plist"; sourceTree = "<group>"; };
 		18B6AC1B16AD0255008137A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18D33F3D16BB50D3005EFD9B /* DateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtilities.h; sourceTree = "<group>"; };
+		18D33F3E16BB50D3005EFD9B /* DateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +211,7 @@
 		18B6AC1716AD0255008137A9 /* LifePracticeTests */ = {
 			isa = PBXGroup;
 			children = (
+				18D33F3C16BB50B3005EFD9B /* UtilityTests */,
 				184346CC16B34115007B6799 /* CoreTests */,
 				18B6AC1816AD0255008137A9 /* Supporting Files */,
 			);
@@ -221,6 +225,15 @@
 				18B6AC1A16AD0255008137A9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18D33F3C16BB50B3005EFD9B /* UtilityTests */ = {
+			isa = PBXGroup;
+			children = (
+				18D33F3D16BB50D3005EFD9B /* DateUtilities.h */,
+				18D33F3E16BB50D3005EFD9B /* DateUtilities.m */,
+			);
+			name = UtilityTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +363,7 @@
 				184346E316B4814F007B6799 /* LPHabit.m in Sources */,
 				181DE5CC16B760A1002227C0 /* LPPerformance.m in Sources */,
 				181DE5DA16B9EAB6002227C0 /* DateUtilities.m in Sources */,
+				18D33F3F16BB50D3005EFD9B /* DateUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
