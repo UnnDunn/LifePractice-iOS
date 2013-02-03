@@ -31,6 +31,7 @@
 		18B6AC1416AD0255008137A9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B6ABF316AD0255008137A9 /* CoreData.framework */; };
 		18B6AC1C16AD0255008137A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18B6AC1A16AD0255008137A9 /* InfoPlist.strings */; };
 		18D33F3F16BB50D3005EFD9B /* UsingDateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D33F3E16BB50D3005EFD9B /* UsingDateUtilities.m */; };
+		18E2F06316BEB8EC0055617D /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E2F06216BEB8EC0055617D /* libOCMock.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,13 @@
 		18B6AC1B16AD0255008137A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		18D33F3D16BB50D3005EFD9B /* UsingDateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingDateUtilities.h; sourceTree = "<group>"; };
 		18D33F3E16BB50D3005EFD9B /* UsingDateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingDateUtilities.m; sourceTree = "<group>"; };
+		18E2F05116BEA4A00055617D /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		18E2F05216BEA4A00055617D /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		18E2F05316BEA4A00055617D /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		18E2F05416BEA4A00055617D /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		18E2F05516BEA4A00055617D /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		18E2F05616BEA4A00055617D /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		18E2F06216BEB8EC0055617D /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E2F06316BEB8EC0055617D /* libOCMock.a in Frameworks */,
 				18B6AC1116AD0255008137A9 /* SenTestingKit.framework in Frameworks */,
 				18B6AC1216AD0255008137A9 /* UIKit.framework in Frameworks */,
 				18B6AC1316AD0255008137A9 /* Foundation.framework in Frameworks */,
@@ -154,6 +163,7 @@
 		18B6ABDE16AD0255008137A9 = {
 			isa = PBXGroup;
 			children = (
+				18E2F04E16BEA4800055617D /* usr */,
 				184346CA16B3407F007B6799 /* LifePracticeCore */,
 				18B6ABF516AD0255008137A9 /* LifePractice */,
 				18B6AC1716AD0255008137A9 /* LifePracticeTests */,
@@ -235,6 +245,44 @@
 			);
 			name = UtilityTests;
 			sourceTree = "<group>";
+		};
+		18E2F04E16BEA4800055617D /* usr */ = {
+			isa = PBXGroup;
+			children = (
+				18E2F05716BEA4D40055617D /* lib */,
+				18E2F04F16BEA4870055617D /* include */,
+			);
+			name = usr;
+			sourceTree = "<group>";
+		};
+		18E2F04F16BEA4870055617D /* include */ = {
+			isa = PBXGroup;
+			children = (
+				18E2F05016BEA4A00055617D /* OCMock */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		18E2F05016BEA4A00055617D /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				18E2F05116BEA4A00055617D /* NSNotificationCenter+OCMAdditions.h */,
+				18E2F05216BEA4A00055617D /* OCMArg.h */,
+				18E2F05316BEA4A00055617D /* OCMConstraint.h */,
+				18E2F05416BEA4A00055617D /* OCMock.h */,
+				18E2F05516BEA4A00055617D /* OCMockObject.h */,
+				18E2F05616BEA4A00055617D /* OCMockRecorder.h */,
+			);
+			path = OCMock;
+			sourceTree = "<group>";
+		};
+		18E2F05716BEA4D40055617D /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				18E2F06216BEB8EC0055617D /* libOCMock.a */,
+			);
+			name = lib;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -478,7 +526,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LifePractice/LifePractice-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/usr/include\"/**";
 				INFOPLIST_FILE = "LifePracticeTests/LifePracticeTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"\"$(SRCROOT)/libOCMock.a\"",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -494,7 +552,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LifePractice/LifePractice-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/usr/include\"/**";
 				INFOPLIST_FILE = "LifePracticeTests/LifePracticeTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"\"$(SRCROOT)/libOCMock.a\"",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
