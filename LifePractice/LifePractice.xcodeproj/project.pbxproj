@@ -32,6 +32,8 @@
 		18B6AC1C16AD0255008137A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18B6AC1A16AD0255008137A9 /* InfoPlist.strings */; };
 		18D33F3F16BB50D3005EFD9B /* UsingDateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D33F3E16BB50D3005EFD9B /* UsingDateUtilities.m */; };
 		18E2F06316BEB8EC0055617D /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E2F06216BEB8EC0055617D /* libOCMock.a */; };
+		18E2F06616BED4870055617D /* HabitXMLTest.xml in Resources */ = {isa = PBXBuildFile; fileRef = 18E2F06516BED4870055617D /* HabitXMLTest.xml */; };
+		18E2F06916BED4F00055617D /* UsingLPPerformanceType.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E2F06816BED4F00055617D /* UsingLPPerformanceType.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,9 @@
 		18E2F05516BEA4A00055617D /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		18E2F05616BEA4A00055617D /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		18E2F06216BEB8EC0055617D /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		18E2F06516BED4870055617D /* HabitXMLTest.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HabitXMLTest.xml; path = Resources/HabitXMLTest.xml; sourceTree = "<group>"; };
+		18E2F06716BED4F00055617D /* UsingLPPerformanceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingLPPerformanceType.h; sourceTree = "<group>"; };
+		18E2F06816BED4F00055617D /* UsingLPPerformanceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingLPPerformanceType.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +150,8 @@
 			children = (
 				184346CD16B3417F007B6799 /* UsingHabitEntity.h */,
 				184346CE16B3417F007B6799 /* UsingHabitEntity.m */,
+				18E2F06716BED4F00055617D /* UsingLPPerformanceType.h */,
+				18E2F06816BED4F00055617D /* UsingLPPerformanceType.m */,
 			);
 			name = CoreTests;
 			sourceTree = "<group>";
@@ -221,6 +228,7 @@
 		18B6AC1716AD0255008137A9 /* LifePracticeTests */ = {
 			isa = PBXGroup;
 			children = (
+				18E2F06416BED3E50055617D /* Resources */,
 				18D33F3C16BB50B3005EFD9B /* UtilityTests */,
 				184346CC16B34115007B6799 /* CoreTests */,
 				18B6AC1816AD0255008137A9 /* Supporting Files */,
@@ -283,6 +291,14 @@
 			);
 			name = lib;
 			sourceTree = SOURCE_ROOT;
+		};
+		18E2F06416BED3E50055617D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				18E2F06516BED4870055617D /* HabitXMLTest.xml */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -368,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18B6AC1C16AD0255008137A9 /* InfoPlist.strings in Resources */,
+				18E2F06616BED4870055617D /* HabitXMLTest.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +429,7 @@
 				181DE5CC16B760A1002227C0 /* LPPerformance.m in Sources */,
 				181DE5DA16B9EAB6002227C0 /* DateUtilities.m in Sources */,
 				18D33F3F16BB50D3005EFD9B /* UsingDateUtilities.m in Sources */,
+				18E2F06916BED4F00055617D /* UsingLPPerformanceType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
