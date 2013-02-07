@@ -34,6 +34,8 @@
 		18E2F06316BEB8EC0055617D /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E2F06216BEB8EC0055617D /* libOCMock.a */; };
 		18E2F06616BED4870055617D /* HabitXMLTest.xml in Resources */ = {isa = PBXBuildFile; fileRef = 18E2F06516BED4870055617D /* HabitXMLTest.xml */; };
 		18E2F06916BED4F00055617D /* UsingLPPerformanceType.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E2F06816BED4F00055617D /* UsingLPPerformanceType.m */; };
+		18E2F0AC16C35DB40055617D /* habit_sample.xml in Resources */ = {isa = PBXBuildFile; fileRef = 18E2F0AA16C35DB40055617D /* habit_sample.xml */; };
+		18E2F0AD16C35DB40055617D /* performance_sample.xml in Resources */ = {isa = PBXBuildFile; fileRef = 18E2F0AB16C35DB40055617D /* performance_sample.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		18E2F06516BED4870055617D /* HabitXMLTest.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HabitXMLTest.xml; path = Resources/HabitXMLTest.xml; sourceTree = "<group>"; };
 		18E2F06716BED4F00055617D /* UsingLPPerformanceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingLPPerformanceType.h; sourceTree = "<group>"; };
 		18E2F06816BED4F00055617D /* UsingLPPerformanceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingLPPerformanceType.m; sourceTree = "<group>"; };
+		18E2F0AA16C35DB40055617D /* habit_sample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = habit_sample.xml; sourceTree = "<group>"; };
+		18E2F0AB16C35DB40055617D /* performance_sample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = performance_sample.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +243,8 @@
 		18B6AC1816AD0255008137A9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				18E2F0AA16C35DB40055617D /* habit_sample.xml */,
+				18E2F0AB16C35DB40055617D /* performance_sample.xml */,
 				18B6AC1916AD0255008137A9 /* LifePracticeTests-Info.plist */,
 				18B6AC1A16AD0255008137A9 /* InfoPlist.strings */,
 			);
@@ -385,6 +391,8 @@
 			files = (
 				18B6AC1C16AD0255008137A9 /* InfoPlist.strings in Resources */,
 				18E2F06616BED4870055617D /* HabitXMLTest.xml in Resources */,
+				18E2F0AC16C35DB40055617D /* habit_sample.xml in Resources */,
+				18E2F0AD16C35DB40055617D /* performance_sample.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

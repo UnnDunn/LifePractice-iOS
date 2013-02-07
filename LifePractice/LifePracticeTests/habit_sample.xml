@@ -1,0 +1,31 @@
+<?xml Version="1.0" ?>
+<Habit CreatedDate="02-05-2012 10:10">
+	<Title>Sample Habit</Title>
+	<Description><![CDATA[
+		Sample description.
+	]]></Description>
+	<TimeFrame StartHour="00" EndHour="23" />
+	<SkipDays>
+		<Sunday>False</Sunday>
+		<Monday>False</Monday>
+		<Tuesday>False</Tuesday>
+		<Wednesday>False</Wednesday>
+		<Thursday>True</Thursday>
+		<Friday>True</Friday>
+		<Saturday>False</Saturday>
+	</SkipDays>
+	<Performances>
+		<Performance CreatedDate="02-05-2012 10:00:00">
+			<ReferenceDate>02-05-2012 00:00:00</ReferenceDate>
+		</Performance>
+		<Performance CreatedDate="02-04-2012 10:00:00">
+			<ReferenceDate>02-04-2012 00:00:00</ReferenceDate>
+		</Performance>
+		<Performance CreatedDate="01-31-2012 10:00:00">
+			<ReferenceDate>01-31-2012 00:00:00</ReferenceDate>
+		</Performance>
+		<Performance CreatedDate="01-31-2012 10:00:00">
+			<ReferenceDate>01-30-2012 00:00:00</ReferenceDate>
+		</Performance>
+	</Performances>
+</Habit>
