@@ -13,20 +13,23 @@
 
 -(void)testPerformanceInitializesFromNSXMLElementCorrectly
 {
-    NSTimeInterval nowInterval = [[NSDate date] timeIntervalSince1970];
-    NSMutableDictionary *inputDates = [[NSMutableDictionary alloc] initWithCapacity:5];
-    // create 5 random reference/create date pairs
-    for (int i = 0; i < 4; i++) {
-        NSTimeInterval randCreateInterval = arc4random_uniform(nowInterval);
-        NSTimeInterval randRefInterval = randCreateInterval - arc4random_uniform(randCreateInterval);
-        
-        NSDate *randCreateDate = [NSDate dateWithTimeIntervalSince1970:randCreateInterval];
-        NSDate *randRefDate = [DateUtilities getMidnightOfDate:[NSDate dateWithTimeIntervalSince1970:randRefInterval]];
-        
-        [inputDates setObject:randCreateDate forKey:randRefDate];
-        
-        //create an NSXMLElement "Performance" with attribute "createDate" and subelement "ReferenceDate"        
-    }
+    NSString *samplePerformance;
+    LPPerformance *performance = [[LPPerformance alloc] initWithXML:samplePerformance];
+    
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *targetReferenceDateComponents;
+    NSDate *targetReferenceDate, *targetCreatedDate;
+    targetReferenceDateComponents = [[NSDateComponents alloc] init];
+    [targetReferenceDateComponents setYear:2012];
+    [targetReferenceDateComponents setMonth:2];
+    [targetReferenceDateComponents setDay:5];
+    targetReferenceDate = [gregorian dateFromComponents:targetReferenceDateComponents];
+    [targetReferenceDateComponents setHour:10];
+    [targetReferenceDateComponents setMinute:0];
+    [targetReferenceDateComponents setSecond:0];
+    targetCreatedDate = [gregorian dateFromComponents:targetReferenceDateComponents];
+    
+    
 }
 
 -(void)testPerformanceExportsToNSXMLElementCorrectly

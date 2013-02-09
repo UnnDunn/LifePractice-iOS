@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface DateUtilities : NSObject
++(NSDate *)dateFromParameters:(NSUInteger)year withMonth:(NSUInteger)month withDate:(NSUInteger)date;
++(NSDate *)dateFromParameters:(NSUInteger)year withMonth:(NSUInteger)month withDate:(NSUInteger)date withHour:(NSUInteger)hour withMinute:(NSUInteger)minute withSecond:(NSUInteger)second;
 +(NSDate *)getMidnightOfDate:(NSDate *)date;
 @end
