@@ -11,6 +11,11 @@
 		181DE5CC16B760A1002227C0 /* LPPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5CA16B760A1002227C0 /* LPPerformance.m */; };
 		181DE5D916B99D5F002227C0 /* DateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5D816B99D5F002227C0 /* DateUtilities.m */; };
 		181DE5DA16B9EAB6002227C0 /* DateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5D816B99D5F002227C0 /* DateUtilities.m */; };
+		183CA52916C9AE9200E4D04B /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CA51C16C9AE9200E4D04B /* DDXMLElementAdditions.m */; };
+		183CA52A16C9AE9200E4D04B /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CA51F16C9AE9200E4D04B /* NSString+DDXML.m */; };
+		183CA52B16C9AE9200E4D04B /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CA52216C9AE9200E4D04B /* DDXMLDocument.m */; };
+		183CA52C16C9AE9200E4D04B /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CA52416C9AE9200E4D04B /* DDXMLElement.m */; };
+		183CA52D16C9AE9200E4D04B /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CA52616C9AE9200E4D04B /* DDXMLNode.m */; };
 		184346CF16B3417F007B6799 /* UsingHabitEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 184346CE16B3417F007B6799 /* UsingHabitEntity.m */; };
 		184346E216B4814F007B6799 /* LPHabit.m in Sources */ = {isa = PBXBuildFile; fileRef = 184346E116B4814F007B6799 /* LPHabit.m */; };
 		184346E316B4814F007B6799 /* LPHabit.m in Sources */ = {isa = PBXBuildFile; fileRef = 184346E116B4814F007B6799 /* LPHabit.m */; };
@@ -53,6 +58,18 @@
 		181DE5CA16B760A1002227C0 /* LPPerformance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LPPerformance.m; path = LifePracticeCore/Types/LPPerformance.m; sourceTree = "<group>"; };
 		181DE5D716B99D5F002227C0 /* DateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateUtilities.h; path = Utilities/DateUtilities.h; sourceTree = "<group>"; };
 		181DE5D816B99D5F002227C0 /* DateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateUtilities.m; path = Utilities/DateUtilities.m; sourceTree = "<group>"; };
+		183CA51B16C9AE9200E4D04B /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElementAdditions.h; sourceTree = "<group>"; };
+		183CA51C16C9AE9200E4D04B /* DDXMLElementAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElementAdditions.m; sourceTree = "<group>"; };
+		183CA51E16C9AE9200E4D04B /* NSString+DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DDXML.h"; sourceTree = "<group>"; };
+		183CA51F16C9AE9200E4D04B /* NSString+DDXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DDXML.m"; sourceTree = "<group>"; };
+		183CA52016C9AE9200E4D04B /* DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXML.h; sourceTree = "<group>"; };
+		183CA52116C9AE9200E4D04B /* DDXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLDocument.h; sourceTree = "<group>"; };
+		183CA52216C9AE9200E4D04B /* DDXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLDocument.m; sourceTree = "<group>"; };
+		183CA52316C9AE9200E4D04B /* DDXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElement.h; sourceTree = "<group>"; };
+		183CA52416C9AE9200E4D04B /* DDXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElement.m; sourceTree = "<group>"; };
+		183CA52516C9AE9200E4D04B /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
+		183CA52616C9AE9200E4D04B /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
+		183CA52816C9AE9200E4D04B /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
 		184346CD16B3417F007B6799 /* UsingHabitEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsingHabitEntity.h; sourceTree = "<group>"; };
 		184346CE16B3417F007B6799 /* UsingHabitEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingHabitEntity.m; sourceTree = "<group>"; };
 		184346E016B4814F007B6799 /* LPHabit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPHabit.h; path = LifePracticeCore/Entities/LPHabit.h; sourceTree = "<group>"; };
@@ -128,6 +145,49 @@
 				181DE5D816B99D5F002227C0 /* DateUtilities.m */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		183CA51916C9AE9200E4D04B /* KissXML */ = {
+			isa = PBXGroup;
+			children = (
+				183CA51A16C9AE9200E4D04B /* Additions */,
+				183CA51D16C9AE9200E4D04B /* Categories */,
+				183CA52016C9AE9200E4D04B /* DDXML.h */,
+				183CA52116C9AE9200E4D04B /* DDXMLDocument.h */,
+				183CA52216C9AE9200E4D04B /* DDXMLDocument.m */,
+				183CA52316C9AE9200E4D04B /* DDXMLElement.h */,
+				183CA52416C9AE9200E4D04B /* DDXMLElement.m */,
+				183CA52516C9AE9200E4D04B /* DDXMLNode.h */,
+				183CA52616C9AE9200E4D04B /* DDXMLNode.m */,
+				183CA52716C9AE9200E4D04B /* Private */,
+			);
+			path = KissXML;
+			sourceTree = "<group>";
+		};
+		183CA51A16C9AE9200E4D04B /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				183CA51B16C9AE9200E4D04B /* DDXMLElementAdditions.h */,
+				183CA51C16C9AE9200E4D04B /* DDXMLElementAdditions.m */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		183CA51D16C9AE9200E4D04B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				183CA51E16C9AE9200E4D04B /* NSString+DDXML.h */,
+				183CA51F16C9AE9200E4D04B /* NSString+DDXML.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		183CA52716C9AE9200E4D04B /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				183CA52816C9AE9200E4D04B /* DDXMLPrivate.h */,
+			);
+			path = Private;
 			sourceTree = "<group>";
 		};
 		184346CA16B3407F007B6799 /* LifePracticeCore */ = {
@@ -293,6 +353,7 @@
 		18E2F05716BEA4D40055617D /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				183CA51916C9AE9200E4D04B /* KissXML */,
 				18E2F06216BEB8EC0055617D /* libOCMock.a */,
 			);
 			name = lib;
@@ -425,6 +486,11 @@
 				184346E216B4814F007B6799 /* LPHabit.m in Sources */,
 				181DE5CB16B760A1002227C0 /* LPPerformance.m in Sources */,
 				181DE5D916B99D5F002227C0 /* DateUtilities.m in Sources */,
+				183CA52916C9AE9200E4D04B /* DDXMLElementAdditions.m in Sources */,
+				183CA52A16C9AE9200E4D04B /* NSString+DDXML.m in Sources */,
+				183CA52B16C9AE9200E4D04B /* DDXMLDocument.m in Sources */,
+				183CA52C16C9AE9200E4D04B /* DDXMLElement.m in Sources */,
+				183CA52D16C9AE9200E4D04B /* DDXMLNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,8 +559,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -514,8 +582,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

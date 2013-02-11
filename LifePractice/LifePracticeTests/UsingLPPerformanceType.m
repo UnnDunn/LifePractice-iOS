@@ -13,7 +13,9 @@
 
 -(void)testPerformanceInitializesFromNSXMLElementCorrectly
 {
-    NSString *samplePerformance;
+    NSString *performanceSamplePath = [[NSBundle mainBundle] pathForResource:@"performance_sample" ofType:@"xml"];
+    NSString *samplePerformance = [NSString stringWithContentsOfFile:performanceSamplePath encoding:NSUTF8StringEncoding error:NULL];
+    
     LPPerformance *performance = [[LPPerformance alloc] initWithXML:samplePerformance];
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -29,7 +31,8 @@
     [targetReferenceDateComponents setSecond:0];
     targetCreatedDate = [gregorian dateFromComponents:targetReferenceDateComponents];
     
-    
+    STAssertTrue([[performance referenceDate] isEqualToDate:targetReferenceDate], @"Performance reference date should be Feb 5, 2012");
+    STAssertTrue([[performance createdDate] isEqualToDate:targetCreatedDate], @"Created Date should be Feb 5, 2012, 10am");
 }
 
 -(void)testPerformanceExportsToNSXMLElementCorrectly

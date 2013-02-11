@@ -7,6 +7,7 @@
 //
 
 #import "LPPerformance.h"
+#import "DDXML.h"
 
 @implementation LPPerformance
 @synthesize referenceDate, createdDate;
@@ -35,6 +36,25 @@
 +(LPPerformance *)performanceForDate:(NSDate *)referenceDate
 {
     return [[LPPerformance alloc] initWithReferenceDate:referenceDate];
+}
+
+-(LPPerformance *)initWithXML:(NSString *)xml
+{
+    DDXMLElement *xmlElement = [[DDXMLElement alloc] initWithXMLString:xml error:NULL];
+    if(![[xmlElement name] isEqual: @"Performance"]) return nil;
+    NSString *createdDateString = [[xmlElement attributeForName:@"CreatedDate"] stringValue];
+    NSString *referenceDateString = [[xmlElement nodesForXPath:@"ReferenceDate" error:NULL][0] stringValue];
+    
+    NSDate *newCreatedDate = [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)[createdDateString doubleValue]];
+    NSDate *newReferenceDate = [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)[referenceDateString doubleValue]];
+    
+    if(self = [super init])
+    {
+        [self setCreatedDate:newCreatedDate];
+        [self setReferenceDate:newReferenceDate];
+    }
+    
+    return self;
 }
 
 -(BOOL)isEqual:(LPPerformance *)object
