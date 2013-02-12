@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1815864716CA7C8C006F3333 /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CA52216C9AE9200E4D04B /* DDXMLDocument.m */; };
+		1815864816CA7C8C006F3333 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CA52416C9AE9200E4D04B /* DDXMLElement.m */; };
+		1815864916CA7C8C006F3333 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CA52616C9AE9200E4D04B /* DDXMLNode.m */; };
 		181DE5CB16B760A1002227C0 /* LPPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5CA16B760A1002227C0 /* LPPerformance.m */; };
 		181DE5CC16B760A1002227C0 /* LPPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5CA16B760A1002227C0 /* LPPerformance.m */; };
 		181DE5D916B99D5F002227C0 /* DateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5D816B99D5F002227C0 /* DateUtilities.m */; };
@@ -54,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1815864516CA7AD0006F3333 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		181DE5C916B760A1002227C0 /* LPPerformance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPPerformance.h; path = LifePracticeCore/Types/LPPerformance.h; sourceTree = "<group>"; };
 		181DE5CA16B760A1002227C0 /* LPPerformance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LPPerformance.m; path = LifePracticeCore/Types/LPPerformance.m; sourceTree = "<group>"; };
 		181DE5D716B99D5F002227C0 /* DateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateUtilities.h; path = Utilities/DateUtilities.h; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 		18B6ABDE16AD0255008137A9 = {
 			isa = PBXGroup;
 			children = (
+				1815864516CA7AD0006F3333 /* libxml2.dylib */,
 				18E2F04E16BEA4800055617D /* usr */,
 				184346CA16B3407F007B6799 /* LifePracticeCore */,
 				18B6ABF516AD0255008137A9 /* LifePractice */,
@@ -422,6 +427,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				English,
 			);
 			mainGroup = 18B6ABDE16AD0255008137A9;
 			productRefGroup = 18B6ABEA16AD0255008137A9 /* Products */;
@@ -498,6 +504,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1815864716CA7C8C006F3333 /* DDXMLDocument.m in Sources */,
+				1815864816CA7C8C006F3333 /* DDXMLElement.m in Sources */,
+				1815864916CA7C8C006F3333 /* DDXMLNode.m in Sources */,
 				184346CF16B3417F007B6799 /* UsingHabitEntity.m in Sources */,
 				184346E316B4814F007B6799 /* LPHabit.m in Sources */,
 				181DE5CC16B760A1002227C0 /* LPPerformance.m in Sources */,
@@ -622,13 +631,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LifePractice/LifePractice-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/usr/include\"/**";
+				HEADER_SEARCH_PATHS = (
+					"/usr/include/libxml2/**",
+					"\"$(SRCROOT)/usr/include\"/**",
+				);
 				INFOPLIST_FILE = "LifePracticeTests/LifePracticeTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = (
+					"-lxml2",
 					"-force_load",
 					"\"$(SRCROOT)/libOCMock.a\"",
 					"-ObjC",
@@ -648,13 +661,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LifePractice/LifePractice-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/usr/include\"/**";
+				HEADER_SEARCH_PATHS = (
+					"/usr/include/libxml2/**",
+					"\"$(SRCROOT)/usr/include\"/**",
+				);
 				INFOPLIST_FILE = "LifePracticeTests/LifePracticeTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = (
+					"-lxml2",
 					"-force_load",
 					"\"$(SRCROOT)/libOCMock.a\"",
 					"-ObjC",
