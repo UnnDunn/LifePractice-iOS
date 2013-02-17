@@ -14,6 +14,7 @@
 		181DE5CC16B760A1002227C0 /* LPPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5CA16B760A1002227C0 /* LPPerformance.m */; };
 		181DE5D916B99D5F002227C0 /* DateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5D816B99D5F002227C0 /* DateUtilities.m */; };
 		181DE5DA16B9EAB6002227C0 /* DateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 181DE5D816B99D5F002227C0 /* DateUtilities.m */; };
+		182D267216CCBC76007B92AB /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CA51F16C9AE9200E4D04B /* NSString+DDXML.m */; };
 		183CA52916C9AE9200E4D04B /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CA51C16C9AE9200E4D04B /* DDXMLElementAdditions.m */; };
 		183CA52A16C9AE9200E4D04B /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CA51F16C9AE9200E4D04B /* NSString+DDXML.m */; };
 		183CA52B16C9AE9200E4D04B /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 183CA52216C9AE9200E4D04B /* DDXMLDocument.m */; };
@@ -504,6 +505,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182D267216CCBC76007B92AB /* NSString+DDXML.m in Sources */,
 				1815864716CA7C8C006F3333 /* DDXMLDocument.m in Sources */,
 				1815864816CA7C8C006F3333 /* DDXMLElement.m in Sources */,
 				1815864916CA7C8C006F3333 /* DDXMLNode.m in Sources */,

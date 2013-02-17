@@ -13,7 +13,8 @@
 
 -(void)testPerformanceInitializesFromNSXMLElementCorrectly
 {
-    NSString *performanceSamplePath = [[NSBundle mainBundle] pathForResource:@"performance_sample" ofType:@"xml"];
+    NSBundle *testBundle = [NSBundle bundleWithIdentifier:@"com.unndunn.LifePracticeTests"];
+    NSString *performanceSamplePath = [testBundle pathForResource:@"performance_sample" ofType:@"xml"];
     NSString *samplePerformance = [NSString stringWithContentsOfFile:performanceSamplePath encoding:NSUTF8StringEncoding error:NULL];
     
     LPPerformance *performance = [[LPPerformance alloc] initWithXML:samplePerformance];

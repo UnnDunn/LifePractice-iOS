@@ -15,17 +15,17 @@
 		<Saturday>False</Saturday>
 	</SkipDays>
 	<Performances>
-		<Performance CreatedDate="02-05-2012 10:00:00">
-			<ReferenceDate>02-05-2012 00:00:00</ReferenceDate>
+		<Performance CreatedDate="1360076444">
+			<ReferenceDate>02-05-2012</ReferenceDate>
 		</Performance>
-		<Performance CreatedDate="02-04-2012 10:00:00">
-			<ReferenceDate>02-04-2012 00:00:00</ReferenceDate>
+		<Performance CreatedDate="1359990044">
+			<ReferenceDate>02-04-2012</ReferenceDate>
 		</Performance>
-		<Performance CreatedDate="01-31-2012 10:00:00">
-			<ReferenceDate>01-31-2012 00:00:00</ReferenceDate>
+		<Performance CreatedDate="1359644400">
+			<ReferenceDate>01-31-2012</ReferenceDate>
 		</Performance>
-		<Performance CreatedDate="01-31-2012 10:00:00">
-			<ReferenceDate>01-30-2012 00:00:00</ReferenceDate>
+		<Performance CreatedDate="1359644430">
+			<ReferenceDate>01-30-2012</ReferenceDate>
 		</Performance>
 	</Performances>
 </Habit>
