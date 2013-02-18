@@ -23,6 +23,7 @@
 +(LPPerformance *)performance;
 +(LPPerformance *)performanceForDate:(NSDate *)referenceDate;
 
+-(NSString *)exportToXML;
 
 
 -(BOOL)isEqual:(LPPerformance *)object;

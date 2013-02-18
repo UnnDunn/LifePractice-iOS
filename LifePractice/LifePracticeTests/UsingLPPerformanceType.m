@@ -8,8 +8,11 @@
 
 #import "UsingLPPerformanceType.h"
 #import <Security/Security.h>
+#import "DDXML.h"
 
 @implementation UsingLPPerformanceType
+
+NSDateFormatter *dateFormatter = nil;
 
 -(void)testPerformanceInitializesFromNSXMLElementCorrectly
 {
@@ -38,6 +41,49 @@
 
 -(void)testPerformanceExportsToNSXMLElementCorrectly
 {
+    NSCalendar *gregorian = [NSCalendar currentCalendar];
+    
+    NSDateComponents *todayComponents, *yesterdayComponents;
+    NSDate *now = [NSDate date];
+    todayComponents = [gregorian components:(NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit) fromDate:now];
+    NSDate *yesterday = [[NSDate alloc] initWithTimeIntervalSinceNow:60 * 60 * 24 * -1];
+    yesterdayComponents = [gregorian components:(NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit) fromDate:yesterday];
+    
+    LPPerformance *testPerformance1 = [LPPerformance performanceForDate:now];
+    LPPerformance *testPerformance2 = [LPPerformance performanceForDate:yesterday];
+    
+    NSString *performanceXML1 = [testPerformance1 exportToXML];
+    NSString *performanceXML2 = [testPerformance2 exportToXML];
+    
+    DDXMLElement *p1XMLElement = [[DDXMLElement alloc] initWithXMLString:performanceXML1 error:NULL];
+    DDXMLElement *p2XMLElement = [[DDXMLElement alloc] initWithXMLString:performanceXML2 error:NULL];
+    
+    // Test Performance 1
+    STAssertTrue([[p1XMLElement name] isEqualToString:@"Performance"], @"Name of element for performance 1 should be 'Performance'");
+    NSDate *p1CreatedDate = [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)[[[p1XMLElement attributeForName:@"CreatedDate"] stringValue] doubleValue]];
+    NSTimeInterval performance1CreatedInterval = [p1CreatedDate timeIntervalSinceDate:now];
+    if(dateFormatter == nil) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    }
+    NSDate *p1RefDate = [dateFormatter dateFromString:[[p1XMLElement nodesForXPath:@"ReferenceDate" error:NULL][0] stringValue]];
+    NSDate *today = [DateUtilities getMidnightOfDate:now];
+    STAssertTrue([today isEqualToDate:p1RefDate], @"Performance 1 reference date should be midnight of today");
+    STAssertTrue(abs(performance1CreatedInterval) < 1, @"Performance 1 create date should be within 1 seconds of current date");
+    
+    // Test Performance 2
+    STAssertTrue([[p2XMLElement name] isEqualToString:@"Performance"], @"Name of element for performance 2 should be 'Performance'");
+    NSDate *p2CreatedDate = [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)[[[p2XMLElement attributeForName:@"CreatedDate"] stringValue] doubleValue]];
+    NSTimeInterval performance2CreatedInterval = [p2CreatedDate timeIntervalSinceDate:now];
+    if(dateFormatter == nil) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    }
+    NSDate *p2RefDate = [dateFormatter dateFromString:[[p2XMLElement nodesForXPath:@"ReferenceDate" error:NULL][0] stringValue]];
+    NSDate *yesterdayMidnight = [DateUtilities getMidnightOfDate:yesterday];
+    STAssertTrue([yesterdayMidnight isEqualToDate:p2RefDate], @"Performance 2 reference date should be midnight of yesterday");
+    STAssertTrue(abs(performance2CreatedInterval) < 1, @"Performance 2 create date should be within 1 seconds of current date");
+    
     
 }
 @end
