@@ -40,9 +40,4 @@
 {
     
 }
-
--(NSUInteger)random
-{
-    
-}
 @end

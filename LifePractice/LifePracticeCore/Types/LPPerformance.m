@@ -12,6 +12,8 @@
 @implementation LPPerformance
 @synthesize referenceDate, createdDate;
 
+NSDateFormatter *USDateFormatter = nil;
+
 -(LPPerformance *)init
 {
     return [self initWithReferenceDate:[NSDate date]];
@@ -46,7 +48,12 @@
     NSString *referenceDateString = [[xmlElement nodesForXPath:@"ReferenceDate" error:NULL][0] stringValue];
     
     NSDate *newCreatedDate = [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)[createdDateString doubleValue]];
-    NSDate *newReferenceDate = [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)[referenceDateString doubleValue]];
+    
+    if(USDateFormatter == nil) {
+        USDateFormatter = [[NSDateFormatter alloc] init];
+        [USDateFormatter setDateFormat:@"MM-dd-yyyy"];
+    }
+    NSDate *newReferenceDate = [USDateFormatter dateFromString:referenceDateString];
     
     if(self = [super init])
     {
