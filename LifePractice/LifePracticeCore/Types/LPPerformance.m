@@ -76,10 +76,7 @@ NSDateFormatter *USDateFormatter = nil;
     [refDateElement setStringValue:refDateString];
     [xmlElement insertChild:refDateElement atIndex:0];
     
-    DDXMLNode *createDateAttribute = [[DDXMLNode alloc] init];
-    [createDateAttribute setName:@"CreatedDate"];
-    [createDateAttribute setStringValue:[[NSString alloc] initWithFormat:@"%f", [[self createdDate] timeIntervalSince1970]]];
-    
+    DDXMLNode *createDateAttribute = [DDXMLNode attributeWithName:@"CreatedDate" stringValue:[[NSString alloc] initWithFormat:@"%f", [[self createdDate] timeIntervalSince1970]]];
     [xmlElement addAttribute:createDateAttribute];
     
     return [xmlElement XMLString];
