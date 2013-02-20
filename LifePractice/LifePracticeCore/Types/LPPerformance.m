@@ -64,6 +64,27 @@ NSDateFormatter *USDateFormatter = nil;
     return self;
 }
 
+-(NSString *)exportToXML
+{
+    DDXMLElement *xmlElement = [[DDXMLElement alloc] initWithName:@"Performance"];
+    DDXMLElement *refDateElement = [[DDXMLElement alloc] initWithName:@"ReferenceDate"];
+    if(USDateFormatter == nil) {
+        USDateFormatter = [[NSDateFormatter alloc] init];
+        [USDateFormatter setDateFormat:@"MM-dd-yyyy"];
+    }
+    NSString *refDateString = [USDateFormatter stringFromDate:[self referenceDate]];
+    [refDateElement setStringValue:refDateString];
+    [xmlElement insertChild:refDateElement atIndex:0];
+    
+    DDXMLNode *createDateAttribute = [[DDXMLNode alloc] init];
+    [createDateAttribute setName:@"CreatedDate"];
+    [createDateAttribute setStringValue:[[NSString alloc] initWithFormat:@"%f", [[self createdDate] timeIntervalSince1970]]];
+    
+    [xmlElement addAttribute:createDateAttribute];
+    
+    return [xmlElement XMLString];
+}
+
 -(BOOL)isEqual:(LPPerformance *)object
 {
     return [[self referenceDate] isEqualToDate:[object referenceDate]];
