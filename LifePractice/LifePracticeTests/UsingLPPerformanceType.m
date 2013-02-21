@@ -14,7 +14,7 @@
 
 NSDateFormatter *dateFormatter = nil;
 
--(void)testPerformanceInitializesFromNSXMLElementCorrectly
+-(void)testPerformanceInitializesFromXMLCorrectly
 {
     NSBundle *testBundle = [NSBundle bundleWithIdentifier:@"com.unndunn.LifePracticeTests"];
     NSString *performanceSamplePath = [testBundle pathForResource:@"performance_sample" ofType:@"xml"];
@@ -39,7 +39,7 @@ NSDateFormatter *dateFormatter = nil;
     STAssertTrue([[performance createdDate] isEqualToDate:targetCreatedDate], @"Created Date should be Feb 5, 2012, 10am");
 }
 
--(void)testPerformanceExportsToNSXMLElementCorrectly
+-(void)testPerformanceExportsToXMLCorrectly
 {
     NSCalendar *gregorian = [NSCalendar currentCalendar];
     

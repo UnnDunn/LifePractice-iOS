@@ -119,4 +119,13 @@
     STAssertTrue([[[performances objectAtIndex:0] referenceDate] isEqualToDate:[DateUtilities getMidnightOfDate:today]], @"Reference date for performance 0 should be midnight today.");
 }
 
+-(void)testHabitImportsFromXMLCorrectly
+{
+    NSBundle *testBundle = [NSBundle bundleWithIdentifier:@"com.unndunn.LifePracticeTests"];
+    NSString *habitSamplePath = [testBundle pathForResource:@"habit_sample" ofType:@"xml"];
+    NSString *habitXML = [NSString stringWithContentsOfFile:habitSamplePath encoding:NSUTF8StringEncoding error:NULL];
+    
+    LPHabit *testHabit = [[LPHabit alloc] initWithXMLString:habitXML];
+    
+}
 @end
