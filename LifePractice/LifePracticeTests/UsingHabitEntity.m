@@ -125,7 +125,12 @@
     NSString *habitSamplePath = [testBundle pathForResource:@"habit_sample" ofType:@"xml"];
     NSString *habitXML = [NSString stringWithContentsOfFile:habitSamplePath encoding:NSUTF8StringEncoding error:NULL];
     
-    LPHabit *testHabit = [[LPHabit alloc] initWithXMLString:habitXML];
-    
+    LPHabit *testHabit = [[LPHabit alloc] initWithXML:habitXML];
+    STAssertTrue([[testHabit habitName] isEqualToString:@"Sample Habit"], @"Habit Name should be 'Sample Habit'.");
+    STAssertTrue([[testHabit habitDescription] isEqualToString:@"Sample description."], @"Habit Description should be 'Sample description.'");
+    STAssertTrue([testHabit timeOfDay].startHour == 0, @"Start hour should be 00");
+    STAssertTrue([testHabit timeOfDay].endHour == 23, @"End hour should be 23");
+    NSUInteger testDays = LPWeekdayFriday | LPWeekdaySaturday;
+    STAssertTrue(([testHabit skippedDays] & testDays) == testDays, @"Skipped days should be Friday and Saturday");
 }
 @end

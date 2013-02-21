@@ -39,7 +39,7 @@ NSMutableDictionary *performances;
 {
     habitDescription = [[NSString alloc] init];
     createdDate = [NSDate date];
-    skippedDays.None = 1;
+    skippedDays = LPWeekdayNone;
     performances = [[NSMutableDictionary alloc] init];
     timeOfDay.startHour = 0;
     timeOfDay.endHour = 24;    

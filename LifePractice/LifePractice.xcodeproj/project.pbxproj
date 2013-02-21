@@ -79,7 +79,7 @@
 		184346CE16B3417F007B6799 /* UsingHabitEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsingHabitEntity.m; sourceTree = "<group>"; };
 		184346E016B4814F007B6799 /* LPHabit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPHabit.h; path = LifePracticeCore/Entities/LPHabit.h; sourceTree = "<group>"; };
 		184346E116B4814F007B6799 /* LPHabit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LPHabit.m; path = LifePracticeCore/Entities/LPHabit.m; sourceTree = "<group>"; };
-		184346ED16B4836F007B6799 /* LPDayOfWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPDayOfWeek.h; path = LifePracticeCore/Types/LPDayOfWeek.h; sourceTree = "<group>"; };
+		184346ED16B4836F007B6799 /* LPWeekday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPWeekday.h; path = LifePracticeCore/Types/LPWeekday.h; sourceTree = "<group>"; };
 		184346EE16B486AA007B6799 /* LPTimeOfDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPTimeOfDay.h; path = LifePracticeCore/Types/LPTimeOfDay.h; sourceTree = "<group>"; };
 		18B6ABE916AD0255008137A9 /* LifePractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifePractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B6ABED16AD0255008137A9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -228,7 +228,7 @@
 		184346EC16B482F6007B6799 /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				184346ED16B4836F007B6799 /* LPDayOfWeek.h */,
+				184346ED16B4836F007B6799 /* LPWeekday.h */,
 				184346EE16B486AA007B6799 /* LPTimeOfDay.h */,
 				181DE5C916B760A1002227C0 /* LPPerformance.h */,
 				181DE5CA16B760A1002227C0 /* LPPerformance.m */,

@@ -1,9 +1,7 @@
 <?xml Version="1.0" ?>
 <Habit CreatedDate="02-05-2012 10:10">
 	<Title>Sample Habit</Title>
-	<Description><![CDATA[
-		Sample description.
-	]]></Description>
+	<Description><![CDATA[Sample description.]]></Description>
 	<TimeFrame StartHour="00" EndHour="23" />
 	<SkipDays>
 		<Sunday>False</Sunday>

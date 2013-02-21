@@ -16,13 +16,13 @@
 {
     NSString *habitName, *description;
     NSDate *createdDate;
-    struct LPDayOfWeek skippedDays;
+    NSUInteger skippedDays;
     struct LPTimeOfDay timeOfDay;
 }
 @property NSString *habitName;
 @property NSString *habitDescription;
 @property NSDate *createdDate;
-@property struct LPDayOfWeek skippedDays;
+@property NSUInteger skippedDays;
 @property struct LPTimeOfDay timeOfDay;
 
 -init;
