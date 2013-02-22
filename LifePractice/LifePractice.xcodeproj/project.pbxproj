@@ -208,8 +208,8 @@
 		184346CB16B34091007B6799 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				181DE5CA16B760A1002227C0 /* LPPerformance.m */,
 				181DE5C916B760A1002227C0 /* LPPerformance.h */,
+				181DE5CA16B760A1002227C0 /* LPPerformance.m */,
 				184346E016B4814F007B6799 /* LPHabit.h */,
 				184346E116B4814F007B6799 /* LPHabit.m */,
 			);

@@ -37,7 +37,9 @@ NSMutableDictionary *performances;
 
 -(id)initWithXML:(NSString *)xml
 {
-    DDXMLDocument *xmlDocument = [[DDXMLDocument alloc] initWithXMLString:xml options:0 error:nil];
+    NSLog(@"XML is %@", xml);
+    NSError *error = nil;
+    DDXMLDocument *xmlDocument = [[DDXMLDocument alloc] initWithXMLString:xml options:0 error:&error];
     DDXMLElement *root = [xmlDocument rootElement];
     if(self = [super init])
     {
