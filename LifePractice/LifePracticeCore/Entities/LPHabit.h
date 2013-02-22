@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LPDayOfWeek.h"
+#import "LPWeekday.h"
 #import "LPTimeOfDay.h"
 #import "LPPerformance.h"
 #import "DateUtilities.h"
@@ -27,6 +27,7 @@
 
 -init;
 -initWithName:(NSString *) initName;
+-initWithXML:(NSString *)xml;
 -(NSArray *)listPerformances;
 -(BOOL)addPerformance;
 -(BOOL)addPerformance:(NSDate *) forDate;

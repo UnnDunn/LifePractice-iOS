@@ -10,20 +10,22 @@
 
 @implementation UsingHabitEntity
 
+NSDateFormatter *dateFormatter = nil;
+
 -(void)testNewHabitIsProperlyInitialized
 {
     LPHabit *habit = [[LPHabit alloc] init];
     STAssertTrue([[habit habitName] isEqualToString: NSLocalizedString(@"Habit_Name_Default", "The default name for a new habit, e.g. 'Do Something'")], @"Habit name should be the default.");
     STAssertTrue([[habit habitDescription] length] == 0, @"Habit Description should be nil.");
     NSTimeInterval dateCreatedInterval = [[habit createdDate] timeIntervalSinceNow];
-    STAssertTrue(abs((int)dateCreatedInterval) < 1, @"Habit Created date not should be set to within 1 second of current time.");
+    STAssertTrue(abs((int)dateCreatedInterval) < 1, @"Habit Created date should be set to within 1 second of current time.");
     NSDate *today = [NSDate date];
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *hourComponent = [gregorian components:(NSHourCalendarUnit) fromDate:today];
     NSUInteger currentHour = [hourComponent hour];
     STAssertTrue([habit timeOfDay].startHour <= currentHour, @"Habit time of day should start before current time of day");
     STAssertTrue([habit timeOfDay].endHour > currentHour, @"Habit time of day should end after current time of day");
-    STAssertTrue([habit skippedDays].None == 1, @"Habit Skipped Days should be nil.");
+    STAssertTrue(([habit skippedDays] & LPWeekdayNone) == LPWeekdayNone , @"Habit Skipped Days should be nil.");
     STAssertTrue([[habit listPerformances] count] == 0, @"Habit performances list should be nil");
 }
 
@@ -34,14 +36,14 @@
     STAssertTrue([[habit habitName] isEqualToString:initalizationString], @"Habit name should be equal to the initalization string");
     STAssertTrue([[habit habitDescription] length] == 0, @"Habit Description should be nil.");
     NSTimeInterval dateCreatedInterval = [[habit createdDate] timeIntervalSinceNow];
-    STAssertTrue(abs((int)dateCreatedInterval) < 1, @"Habit Created date not should be set to within 1 second of current time.");
+    STAssertTrue(abs((int)dateCreatedInterval) < 1, @"Habit Created date should be set to within 1 second of current time.");
     NSDate *today = [NSDate date];
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *hourComponent = [gregorian components:(NSHourCalendarUnit) fromDate:today];
     NSUInteger currentHour = [hourComponent hour];
     STAssertTrue([habit timeOfDay].startHour <= currentHour, @"Habit time of day should start before current time of day");
     STAssertTrue([habit timeOfDay].endHour > currentHour, @"Habit time of day should end after current time of day");
-    STAssertTrue([habit skippedDays].None == 1, @"Habit Skipped Days should be nil.");
+    STAssertTrue(([habit skippedDays] & LPWeekdayNone) == LPWeekdayNone , @"Habit Skipped Days should be nil.");
     STAssertTrue([[habit listPerformances] count] == 0, @"Habit performances list should be nil");
 }
 
@@ -132,5 +134,22 @@
     STAssertTrue([testHabit timeOfDay].endHour == 23, @"End hour should be 23");
     NSUInteger testDays = LPWeekdayFriday | LPWeekdaySaturday;
     STAssertTrue(([testHabit skippedDays] & testDays) == testDays, @"Skipped days should be Friday and Saturday");
+    
+    NSArray *testPerformances = [testHabit listPerformances];
+    STAssertTrue([testPerformances count] == 4, @"There should be 4 performances in the array");
+    if(dateFormatter == nil)
+    {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    }
+    
+    NSArray *testPerformanceCreatedDates = [NSArray arrayWithObjects:[NSDate dateWithTimeIntervalSince1970:1359644430], [NSDate dateWithTimeIntervalSince1970:1359644400], [NSDate dateWithTimeIntervalSince1970:1359990044], [NSDate dateWithTimeIntervalSince1970:1360076444], nil];
+    NSArray *testPerformanceReferenceDates = [NSArray arrayWithObjects:[dateFormatter dateFromString:@"01-30-2013"], [dateFormatter dateFromString:@"01-31-2013"], [dateFormatter dateFromString:@"02-04-2013"], [dateFormatter dateFromString:@"02-05-2013"], nil];
+    NSUInteger count = 0;
+    for (LPPerformance *testPerformance in testPerformances) {
+        STAssertTrue([[testPerformance createdDate] isEqualToDate:testPerformanceCreatedDates[count]], [NSString stringWithFormat:@"Created date of performance %d should be %@.", count, testPerformanceCreatedDates[count]]);
+        STAssertTrue([[testPerformance referenceDate] isEqualToDate:testPerformanceReferenceDates[count]], [NSString stringWithFormat:@"Reference date of performance %d should be %@.", count, testPerformanceReferenceDates[count]]);
+        count++;
+    }
 }
 @end

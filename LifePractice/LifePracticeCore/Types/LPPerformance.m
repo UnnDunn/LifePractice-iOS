@@ -93,10 +93,10 @@ NSDateFormatter *USDateFormatter = nil;
     return [[self referenceDate] compare:comparisonReferenceDate];
 }
 
--(NSComparisonResult)createDateCompare:(LPPerformance *)comparisonPerformance
+-(NSComparisonResult)createdDateCompare:(LPPerformance *)comparisonPerformance
 {
-    NSDate *comparisonReferenceDate = [comparisonPerformance referenceDate];
-    return [[self referenceDate] compare:comparisonReferenceDate];
+    NSDate *comparisonCreatedDate = [comparisonPerformance createdDate];
+    return [[self createdDate] compare:comparisonCreatedDate];
 }
 
 @end

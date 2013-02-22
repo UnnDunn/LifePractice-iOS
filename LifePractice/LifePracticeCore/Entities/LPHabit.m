@@ -35,6 +35,15 @@ NSMutableDictionary *performances;
     return self;
 }
 
+-(id)initWithXML:(NSString *)xml
+{
+    if(self = [super init])
+    {
+    }
+    
+    return self;    
+}
+
 -(void)initializeProperties
 {
     habitDescription = [[NSString alloc] init];
