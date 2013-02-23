@@ -23,6 +23,7 @@
 @property NSString *habitDescription;
 @property NSDate *createdDate;
 @property NSUInteger skippedDays;
+@property NSMutableDictionary *performances;
 @property struct LPTimeOfDay timeOfDay;
 
 -init;

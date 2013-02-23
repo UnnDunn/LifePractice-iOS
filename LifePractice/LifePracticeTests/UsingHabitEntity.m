@@ -132,7 +132,7 @@ NSDateFormatter *dateFormatter = nil;
     STAssertTrue([[testHabit habitDescription] isEqualToString:@"Sample description."], @"Habit Description should be 'Sample description.'");
     STAssertTrue([testHabit timeOfDay].startHour == 0, @"Start hour should be 00");
     STAssertTrue([testHabit timeOfDay].endHour == 23, @"End hour should be 23");
-    NSUInteger testDays = LPWeekdayFriday | LPWeekdaySaturday;
+    NSUInteger testDays = LPWeekdayThursday | LPWeekdayFriday;
     STAssertTrue(([testHabit skippedDays] & testDays) == testDays, @"Skipped days should be Friday and Saturday");
     
     NSArray *testPerformances = [testHabit listPerformances];

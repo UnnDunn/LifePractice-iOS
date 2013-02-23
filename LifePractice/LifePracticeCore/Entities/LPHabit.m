@@ -10,9 +10,8 @@
 #import "DDXML.h"
 
 @implementation LPHabit
-@synthesize habitName, habitDescription, createdDate, skippedDays, timeOfDay;
+@synthesize habitName, habitDescription, createdDate, skippedDays, timeOfDay, performances;
 
-NSMutableDictionary *performances;
 - init
 {
     if(self = [super init])
@@ -96,12 +95,13 @@ NSMutableDictionary *performances;
                 continue;
             }
         }
-        skippedDays = skippedDaysValue;
+        [self setSkippedDays:skippedDaysValue];
         
+        [self setPerformances:[[NSMutableDictionary alloc] init]];
         NSArray *performanceElements = [root nodesForXPath:@"Performances/Performance" error:nil];
         for (DDXMLElement *performanceElement in performanceElements) {
             LPPerformance *newPerformance = [[LPPerformance alloc] initWithXML:[performanceElement XMLString]];
-            [performances setObject:newPerformance forKey:[newPerformance referenceDate]];
+            [[self performances] setObject:newPerformance forKey:[newPerformance referenceDate]];
         }
     }
     
