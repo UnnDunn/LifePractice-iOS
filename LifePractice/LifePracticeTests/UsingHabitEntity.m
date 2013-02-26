@@ -7,6 +7,7 @@
 //
 
 #import "UsingHabitEntity.h"
+#import "DDXML.h"
 
 @implementation UsingHabitEntity
 
@@ -133,7 +134,7 @@ NSDateFormatter *dateFormatter = nil;
     STAssertTrue([testHabit timeOfDay].startHour == 0, @"Start hour should be 00");
     STAssertTrue([testHabit timeOfDay].endHour == 23, @"End hour should be 23");
     NSUInteger testDays = LPWeekdayThursday | LPWeekdayFriday;
-    STAssertTrue(([testHabit skippedDays] & testDays) == testDays, @"Skipped days should be Friday and Saturday");
+    STAssertTrue(([testHabit skippedDays] & testDays) == testDays, @"Skipped days should be Thursday and Friday");
     
     NSArray *testPerformances = [testHabit listPerformances];
     STAssertTrue([testPerformances count] == 4, @"There should be 4 performances in the array");
@@ -150,6 +151,67 @@ NSDateFormatter *dateFormatter = nil;
         STAssertTrue([[testPerformance createdDate] isEqualToDate:testPerformanceCreatedDates[count]], [NSString stringWithFormat:@"Created date of performance %d should be %@.", count, testPerformanceCreatedDates[count]]);
         STAssertTrue([[testPerformance referenceDate] isEqualToDate:testPerformanceReferenceDates[count]], [NSString stringWithFormat:@"Reference date of performance %d should be %@.", count, testPerformanceReferenceDates[count]]);
         count++;
+    }
+}
+
+-(void)testHabitExportsToXMLCorrectly
+{
+    NSError *error = nil;
+    NSDate *yesterday = [[NSDate alloc] initWithTimeIntervalSinceNow:60 * 60 * 24 * -1];
+    LPHabit *testHabit = [[LPHabit alloc] initWithName:@"Test Habit"];
+    [testHabit setHabitDescription:@"Test Description."];
+    [testHabit addPerformance:[NSDate date]];
+    [testHabit addPerformance:yesterday];
+    testHabit.skippedDays |= LPWeekdayFriday | LPWeekdaySaturday;
+    
+    NSString *testXML = [testHabit exportToXML];
+    
+    DDXMLDocument *testXMLDocument = [[DDXMLDocument alloc] initWithXMLString:testXML options:0 error:&error];
+    STAssertFalse(error == nil, @"No errors should result from parsing XML into NSXMLDocument");
+    
+    DDXMLElement *rootElement = [testXMLDocument rootElement];
+    NSString *rootElementName = [rootElement name];
+    NSUInteger rootCreatedInterval = [[[rootElement attributeForName:@"CreatedDate"] stringValue] integerValue];
+    
+    STAssertTrue([rootElementName isEqualToString:@"Habit"], @"Name of root element should be 'Habit'");
+    STAssertTrue(abs([[NSDate date] timeIntervalSince1970] - rootCreatedInterval) < 1, @"Created date should be within one second of now");
+    
+    NSString *testTitle = [[rootElement nodesForXPath:@"Title" error:&error][0] stringValue];
+    NSString *testDescription = [[rootElement nodesForXPath:@"Description" error:&error][0] stringValue];
+    DDXMLElement *testTimeFrame = [rootElement nodesForXPath:@"TimeFrame" error:&error][0];
+    DDXMLNode *testStartHour = [testTimeFrame attributeForName:@"StartHour"];
+    DDXMLNode *testEndHour = [testTimeFrame attributeForName:@"EndHour"];
+    NSArray *testSkippedDays = [[rootElement nodesForXPath:@"SkipDays" error:&error][0] children];
+    NSArray *testPerformances = [rootElement nodesForXPath:@"Performances/Performance" error:&error];
+    
+    STAssertTrue([testTitle isEqualToString:@"Test Habit"], @"The title element should be 'Test Title'");
+    STAssertTrue([testDescription isEqualToString:@"Test Description."], @"The description element should be 'Test description.'");
+    STAssertTrue([[testStartHour stringValue] integerValue] == 0, @"Start Hour should be 0.");
+    STAssertTrue([[testEndHour stringValue] integerValue] == 23, @"End Hour should be 23.");
+    NSDictionary *skippedDays = [NSDictionary dictionaryWithObjectsAndKeys:@"false", @"sunday", @"false", @"monday", @"false", @"tuesday", @"false", @"wednesday", @"false", @"thursday", @"true", @"friday", @"true", @"saturday", nil];
+    for (DDXMLElement *skipDayElement in testSkippedDays) {
+        NSString *elementName = [[skipDayElement name] lowercaseString];
+        NSString *elementValue = [[skipDayElement stringValue] lowercaseString];
+        STAssertTrue([[skippedDays objectForKey:elementName] isEqualToString:elementValue], [NSString stringWithFormat:@"Value for Skip Day %@ should be %@.", elementName, [skippedDays objectForKey:elementName]]);
+    }
+    STAssertTrue([testSkippedDays count] == 7, @"There should be 7 Skipped Day elements.");
+    
+    STAssertTrue([testPerformances count] == 2, @"There should be 2 Performance entries");
+    NSMutableArray *refDateStrings, *createDateStrings;
+    refDateStrings = [NSMutableArray arrayWithCapacity:2];
+    createDateStrings = [NSMutableArray arrayWithCapacity:2];
+    for (DDXMLElement *testPerformance in testPerformances) {
+        NSString *createDateString = [[testPerformance attributeForName:@"CreatedDate"] stringValue];
+        NSString *refDateString = [[testPerformance nodesForXPath:@"ReferenceDate" error:&error][0] stringValue];
+        [refDateStrings addObject:refDateString];
+        [createDateStrings addObject:createDateString];
+    }
+    NSDictionary *testPerformanceDictionary = [NSDictionary dictionaryWithObjects:createDateStrings forKeys:refDateStrings];
+    NSArray *realPerformances = [testHabit listPerformances];
+    for (LPPerformance *performance in realPerformances) {
+        NSString *realCreateDateString = [NSString stringWithFormat:@"%f",[[performance createdDate] timeIntervalSince1970]];
+        NSString *realRefDateString = [dateFormatter stringFromDate:[performance referenceDate]];
+        STAssertTrue([[testPerformanceDictionary objectForKey:realRefDateString] isEqualToString:realCreateDateString], [NSString stringWithFormat:@"%@ reference date should map to %@ created date", realRefDateString, [testPerformanceDictionary objectForKey:realRefDateString]]);
     }
 }
 @end
