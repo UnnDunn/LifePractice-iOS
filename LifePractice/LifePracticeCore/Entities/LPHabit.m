@@ -108,6 +108,38 @@
     return self;    
 }
 
+-(NSString *)exportToXML
+{
+    DDXMLElement *titleElement = [DDXMLElement elementWithName:@"Title" stringValue:[self habitName]];
+    DDXMLElement *descriptionElement = [DDXMLElement elementWithName:@"Description" stringValue:[self habitDescription]];
+    DDXMLElement *timeFrameElement = [DDXMLElement elementWithName:@"TimeFrame"];
+    [timeFrameElement addAttribute:[DDXMLNode attributeWithName:@"StartHour" stringValue:[NSString stringWithFormat:@"%d", [self timeOfDay].startHour]]];
+    [timeFrameElement addAttribute:[DDXMLNode attributeWithName:@"EndHour" stringValue:[NSString stringWithFormat:@"%d", [self timeOfDay].endHour]]];
+    
+    NSMutableArray *skipDayElements = [NSMutableArray arrayWithCapacity:7];
+    NSDictionary *skipDayMapping = [NSDictionary dictionaryWithObjectsAndKeys:@"Sunday", LPWeekdaySunday, @"Monday", LPWeekdayMonday, @"Tuesday", LPWeekdayTuesday, @"Wednesday", LPWeekdayWednesday, @"Thursday", LPWeekdayThursday, @"Friday", LPWeekdayFriday, @"Saturday", LPWeekdaySaturday, nil];
+    [skipDayMapping enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        NSString *skipDayValue = ([self skippedDays] & (NSUInteger)key) == (NSUInteger)key ? @"True" : @"False";
+        [skipDayElements addObject:[DDXMLElement elementWithName:(NSString *)obj stringValue:skipDayValue]];
+    }];
+    DDXMLElement *skipDayElement = [DDXMLElement elementWithName:@"SkipDays" children:skipDayElements attributes:nil];
+    
+    NSMutableArray *performanceElements = [NSMutableArray arrayWithCapacity:[performances count]];
+    [performances enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        NSError *error = nil;
+        NSString *performanceXML = [(LPPerformance *)obj exportToXML];
+        [performanceElements addObject:[[DDXMLElement alloc] initWithXMLString:performanceXML error:&error]];
+    }];
+    DDXMLElement *performanceElement = [DDXMLElement elementWithName:@"Performances" children:performanceElements attributes:nil];
+    
+    DDXMLDocument *exportXMLDocument = [[DDXMLDocument alloc] init];
+    [[exportXMLDocument rootElement] setName:@"Habit"];
+    [[exportXMLDocument rootElement] addAttribute:[DDXMLNode attributeWithName:@"CreatedDate" stringValue:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]]]];
+    [[exportXMLDocument rootElement] setChildren:[NSArray arrayWithObjects:titleElement, descriptionElement, timeFrameElement, skipDayElement, performanceElement, nil]];
+    
+    return [exportXMLDocument XMLString];
+}
+
 -(void)initializeProperties
 {
     habitDescription = [[NSString alloc] init];

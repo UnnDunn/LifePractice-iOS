@@ -29,6 +29,7 @@
 -init;
 -initWithName:(NSString *) initName;
 -initWithXML:(NSString *)xml;
+-(NSString *)exportToXML;
 -(NSArray *)listPerformances;
 -(BOOL)addPerformance;
 -(BOOL)addPerformance:(NSDate *) forDate;
