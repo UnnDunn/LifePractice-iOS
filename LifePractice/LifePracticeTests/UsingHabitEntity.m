@@ -218,4 +218,39 @@ NSDateFormatter *dateFormatter = nil;
         STAssertTrue([[testPerformanceDictionary objectForKey:realRefDateString] isEqualToString:realCreateDateString], [NSString stringWithFormat:@"%@ reference date should map to %@ created date", realRefDateString, [testPerformanceDictionary objectForKey:realRefDateString]]);
     }
 }
+
+-(LPHabit *)returnSampleHabit
+{
+    NSBundle *testBundle = [NSBundle bundleWithIdentifier:@"com.unndunn.LifePracticeTests"];
+    NSString *habitSamplePath = [testBundle pathForResource:@"habit_sample" ofType:@"xml"];
+    NSString *habitXML = [NSString stringWithContentsOfFile:habitSamplePath encoding:NSUTF8StringEncoding error:NULL];
+    
+    LPHabit *testHabit = [[LPHabit alloc] initWithXML:habitXML];
+    return testHabit;
+}
+
+-(void)testWasPerformedReturnsValidResults
+{
+    LPHabit *testHabit = [self returnSampleHabit];
+    
+    if(dateFormatter == nil)
+    {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    }
+    
+    BOOL testResult1 = [testHabit wasPerformedOn:[dateFormatter dateFromString:@"02-05-2013"]];
+    BOOL testResult2 = [testHabit wasPerformedOn:[dateFormatter dateFromString:@"02-04-2013"]];
+    BOOL testResult3 = [testHabit wasPerformedOn:[dateFormatter dateFromString:@"01-31-2013"]];
+    BOOL testResult4 = [testHabit wasPerformedOn:[dateFormatter dateFromString:@"01-30-2013"]];
+    
+    STAssertTrue(testResult1 && testResult2 && testResult3 && testResult4 == true, @"First 4 tests should all evaluate to true.");
+    
+    BOOL testResult5 = [testHabit wasPerformedOn:[NSDate date]];
+    BOOL testResult6 = [testHabit wasPerformedOn:[NSDate dateWithTimeIntervalSinceNow:60 * 60 * 24 * 5]];
+    BOOL testResult7 = [testHabit wasPerformedOn:[dateFormatter dateFromString:@"01-01-2013"]];
+    BOOL testResult8 = [testHabit wasPerformedOn:[dateFormatter dateFromString:@"02-01-2013"]];
+    
+    STAssertTrue(testResult5 || testResult6 || testResult7 || testResult8 == false, @"Tests 5-8 should all evaluate to false");
+}
 @end

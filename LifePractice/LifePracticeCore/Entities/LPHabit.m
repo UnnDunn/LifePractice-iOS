@@ -203,5 +203,11 @@
     NSDate *referenceDate = [DateUtilities getMidnightOfDate:forDate];
     return [performances objectForKey:referenceDate];
 }
+
+-(BOOL)wasPerformedOn:(NSDate *)date
+{
+    NSDate *referenceDate = [DateUtilities getMidnightOfDate:date];
+    return [performances objectForKey:referenceDate] != nil;
+}
 @end
 

@@ -35,4 +35,5 @@
 -(BOOL)addPerformance:(NSDate *) forDate;
 -(BOOL)removePerformance:(NSDate *) forDate;
 -(LPPerformance *)getPerformance:(NSDate *)forDate;
+-(BOOL)wasPerformedOn:(NSDate *)date;
 @end
