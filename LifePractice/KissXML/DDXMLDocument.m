@@ -102,6 +102,17 @@
 	return [self initWithDocPrimitive:doc owner:nil];
 }
 
+- (id)initWithRootElement:(DDXMLElement *)element {
+    xmlDocPtr doc = xmlNewDoc(NULL);
+    self = [self initWithDocPrimitive:doc owner:nil];
+    if (self) {
+        if (element) {
+            [self setRootElement:element];
+        }
+    }
+    return self;
+}
+
 /**
  * Returns the root element of the receiver.
 **/
@@ -121,6 +132,23 @@
 		return [DDXMLElement nodeWithElementPrimitive:rootNode owner:self];
 	else
 		return nil;
+}
+
+- (void)setRootElement:(DDXMLNode *)root {
+#if DDXML_DEBUG_MEMORY_ISSUES
+	DDXMLNotZombieAssert();
+#endif
+	
+	// NSXML version uses these same assertions
+	DDXMLAssert([root _hasParent] == NO, @"Cannot add a child that has a parent; detach or copy first");
+	DDXMLAssert(IsXmlNodePtr(root->genericPtr),
+	            @"Elements can only have text, elements, processing instructions, and comments as children");
+    
+    xmlDocPtr doc = (xmlDocPtr)genericPtr;
+    xmlDocSetRootElement(doc, (xmlNodePtr)root->genericPtr);
+    
+    // The node is now part of the xml tree heirarchy
+	root->owner = self;
 }
 
 - (NSData *)XMLData
