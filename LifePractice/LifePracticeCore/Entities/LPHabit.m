@@ -118,8 +118,11 @@
     
     NSMutableArray *skipDayElements = [NSMutableArray arrayWithCapacity:7];
     NSDictionary *skipDayMapping = [NSDictionary dictionaryWithObjectsAndKeys:@"Sunday", [NSNumber numberWithInteger:LPWeekdaySunday], @"Monday", [NSNumber numberWithInteger:LPWeekdayMonday], @"Tuesday", [NSNumber numberWithInteger:LPWeekdayTuesday], @"Wednesday", [NSNumber numberWithInteger:LPWeekdayWednesday], @"Thursday", [NSNumber numberWithInteger:LPWeekdayThursday], @"Friday", [NSNumber numberWithInteger:LPWeekdayFriday], @"Saturday", [NSNumber numberWithInteger:LPWeekdaySaturday], nil];
+    int skippedDaysValue = (int)[self skippedDays];
     [skipDayMapping enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        NSString *skipDayValue = ([self skippedDays] & (NSUInteger)key) == (NSUInteger)key ? @"True" : @"False";
+        int internalKey = [key integerValue];
+        int mask = skippedDaysValue & internalKey;
+        NSString *skipDayValue = (mask == internalKey) ? @"True" : @"False";
         [skipDayElements addObject:[DDXMLElement elementWithName:(NSString *)obj stringValue:skipDayValue]];
     }];
     DDXMLElement *skipDayElement = [DDXMLElement elementWithName:@"SkipDays" children:skipDayElements attributes:nil];
@@ -135,7 +138,7 @@
     DDXMLElement *rootElement = [[DDXMLElement alloc] initWithName:@"Habit"];
     [rootElement addAttribute:[DDXMLNode attributeWithName:@"CreatedDate" stringValue:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]]]];
     [rootElement setChildren:[NSArray arrayWithObjects:titleElement, descriptionElement, timeFrameElement, skipDayElement, performanceElement, nil]];
-    DDXMLDocument *exportXMLDocument = [[DDXMLDocument alloc] initWithRootElement:rootElement];
+    DDXMLDocument *exportXMLDocument = [[DDXMLDocument alloc] initWithRootElement:rootElement];
     
     return [exportXMLDocument XMLString];
 }

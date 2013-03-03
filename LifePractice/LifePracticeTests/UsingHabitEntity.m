@@ -167,7 +167,7 @@ NSDateFormatter *dateFormatter = nil;
     NSString *testXML = [testHabit exportToXML];
     
     DDXMLDocument *testXMLDocument = [[DDXMLDocument alloc] initWithXMLString:testXML options:0 error:&error];
-    STAssertFalse(error == nil, @"No errors should result from parsing XML into NSXMLDocument");
+    STAssertTrue(error == nil, @"No errors should result from parsing XML into NSXMLDocument");
     
     DDXMLElement *rootElement = [testXMLDocument rootElement];
     NSString *rootElementName = [rootElement name];
@@ -187,7 +187,7 @@ NSDateFormatter *dateFormatter = nil;
     STAssertTrue([testTitle isEqualToString:@"Test Habit"], @"The title element should be 'Test Title'");
     STAssertTrue([testDescription isEqualToString:@"Test Description."], @"The description element should be 'Test description.'");
     STAssertTrue([[testStartHour stringValue] integerValue] == 0, @"Start Hour should be 0.");
-    STAssertTrue([[testEndHour stringValue] integerValue] == 23, @"End Hour should be 23.");
+    STAssertTrue([[testEndHour stringValue] integerValue] == 24, @"End Hour should be 24.");
     NSDictionary *skippedDays = [NSDictionary dictionaryWithObjectsAndKeys:@"false", @"sunday", @"false", @"monday", @"false", @"tuesday", @"false", @"wednesday", @"false", @"thursday", @"true", @"friday", @"true", @"saturday", nil];
     for (DDXMLElement *skipDayElement in testSkippedDays) {
         NSString *elementName = [[skipDayElement name] lowercaseString];
@@ -208,6 +208,10 @@ NSDateFormatter *dateFormatter = nil;
     }
     NSDictionary *testPerformanceDictionary = [NSDictionary dictionaryWithObjects:createDateStrings forKeys:refDateStrings];
     NSArray *realPerformances = [testHabit listPerformances];
+    if (dateFormatter == NULL) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    }
     for (LPPerformance *performance in realPerformances) {
         NSString *realCreateDateString = [NSString stringWithFormat:@"%f",[[performance createdDate] timeIntervalSince1970]];
         NSString *realRefDateString = [dateFormatter stringFromDate:[performance referenceDate]];
