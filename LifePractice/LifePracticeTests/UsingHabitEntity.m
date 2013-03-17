@@ -253,4 +253,22 @@ NSDateFormatter *dateFormatter = nil;
     
     STAssertTrue(testResult5 || testResult6 || testResult7 || testResult8 == false, @"Tests 5-8 should all evaluate to false");
 }
+
+-(void)testCurrentStreakReturnsCorrectResults
+{
+    LPHabit *testHabit = [self returnSampleHabit];
+    STAssertTrue([testHabit currentStreak] == 0, @"Current streak should return 0 by default.");
+    
+    [testHabit addPerformance:[NSDate dateWithTimeIntervalSinceNow:60 * 60 * 24 * -1]];
+    STAssertTrue([testHabit currentStreak] == 1, @"Current streak should return 1 after one performance posted.");
+    
+    [testHabit addPerformance:[NSDate date]];
+    STAssertTrue([testHabit currentStreak] == 2, @"Current streak should return 2 after two performances posted.");
+}
+
+-(void)testLongestStreakReturnsCorrectResults
+{
+    LPHabit *testHabit = [self returnSampleHabit];
+    STAssertTrue([testHabit longestStreak] == 2, @"Longest streak should be 2 for standard sample habit");
+}
 @end
