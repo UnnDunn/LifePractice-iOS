@@ -209,5 +209,42 @@
     NSDate *referenceDate = [DateUtilities getMidnightOfDate:date];
     return [performances objectForKey:referenceDate] != nil;
 }
+
+-(NSUInteger)currentStreak
+{
+    NSUInteger result = 0;
+    NSDate *currentDay = [NSDate date];
+    NSTimeInterval secondsPerDay = 24 * 60 * 60;
+    BOOL performanceForCurrentDay = [self wasPerformedOn:currentDay];
+    while (performanceForCurrentDay) {
+        result++;
+        currentDay = [currentDay dateByAddingTimeInterval:-secondsPerDay];
+        performanceForCurrentDay = [self wasPerformedOn:currentDay];
+    }
+    
+    return result;
+}
+
+-(NSUInteger)longestStreak
+{
+    NSUInteger currentStreak, longestStreak;
+    currentStreak = 0;
+    longestStreak = 0;
+    LPPerformance *prevPerformance = Nil;
+    for (LPPerformance *performance in [self listPerformances]) {
+        if (prevPerformance == Nil) {
+            prevPerformance = performance;
+            continue;
+        }
+        if ([prevPerformance isAdjoiningWith:performance]) currentStreak++;
+        else {
+            if (currentStreak > longestStreak) longestStreak = currentStreak;
+            currentStreak = 0;
+        }
+        prevPerformance = performance;
+    }
+    
+    return longestStreak;
+}
 @end
 

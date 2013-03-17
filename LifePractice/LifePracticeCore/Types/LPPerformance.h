@@ -29,4 +29,5 @@
 -(BOOL)isEqual:(LPPerformance *)object;
 -(NSComparisonResult)referenceDateCompare:(LPPerformance *)comparisonPerformance;
 -(NSComparisonResult)createdDateCompare:(LPPerformance *)comparisonPerformance;
+-(BOOL)isAdjoiningWith:(LPPerformance *)comparisonPerformance;
 @end

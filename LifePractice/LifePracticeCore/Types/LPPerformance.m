@@ -99,4 +99,9 @@ NSDateFormatter *USDateFormatter = nil;
     return [[self createdDate] compare:comparisonCreatedDate];
 }
 
+-(BOOL)isAdjoiningWith:(LPPerformance *)comparisonPerformance
+{
+    NSTimeInterval secondsPerDay = 24 * 60 * 60;
+    return abs([[self referenceDate] timeIntervalSinceDate:[comparisonPerformance referenceDate]]) <= secondsPerDay;
+}
 @end

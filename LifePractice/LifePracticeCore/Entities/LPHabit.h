@@ -36,4 +36,6 @@
 -(BOOL)removePerformance:(NSDate *) forDate;
 -(LPPerformance *)getPerformance:(NSDate *)forDate;
 -(BOOL)wasPerformedOn:(NSDate *)date;
+-(NSUInteger)currentStreak;
+-(NSUInteger)longestStreak;
 @end
