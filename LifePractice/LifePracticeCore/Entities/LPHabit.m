@@ -228,7 +228,7 @@
 -(NSUInteger)longestStreak
 {
     NSUInteger currentStreak, longestStreak;
-    currentStreak = 0;
+    currentStreak = 1;
     longestStreak = 0;
     LPPerformance *prevPerformance = Nil;
     for (LPPerformance *performance in [self listPerformances]) {
@@ -239,7 +239,7 @@
         if ([prevPerformance isAdjoiningWith:performance]) currentStreak++;
         else {
             if (currentStreak > longestStreak) longestStreak = currentStreak;
-            currentStreak = 0;
+            currentStreak = 1;
         }
         prevPerformance = performance;
     }
